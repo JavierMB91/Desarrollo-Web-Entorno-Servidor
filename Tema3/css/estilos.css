@@ -1,0 +1,23 @@
+.tabla {
+    border: solid 1px;
+    border-color: black;
+    width: 200px;
+    text-align: center;
+    font-weight: 700;
+    background-color: lightcoral;
+}
+
+.tabla tr, .tabla td {
+    border: solid;
+}
+
+.tabla tr{
+    background-color: rgb(194, 141, 141);
+}
+
+.tabla tr:nth-child(odd) {
+    background-color: rgb(102, 36, 36);
+}
+
+
+
