@@ -1,0 +1,19 @@
+.tabla1 {
+    border: 1px solid black;
+    width: 20%;
+}
+
+.tabla2 {
+    border: 1px solid black;
+    width: 20%;
+}
+
+.tabla1 tr, .tabla1 td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.tabla2 tr, .tabla2 td {
+    border: 1px solid black;
+    text-align: center;
+}
