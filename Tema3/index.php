@@ -91,23 +91,39 @@
 
     <h2>Calendario</h2>
     <?php
-        $meses = ["Enero" =>31, "Febrero" =>28, "Marzo" =>31, "Abril" =>30, "Junio" => 31, "Julio" => 30, "Agosto" => 31, "Septiembre" => 30, "Octubre" => 31, "Noviembre" => 30, "Diciembte" => 31];
+    $meses = ["Enero" => 31, "Febrero" => 28, "Marzo" => 31, "Abril" => 30, "Mayo" => 31, "Junio" => 30, "Julio" => 31, "Agosto" => 31, "Septiembre" => 30, "Octubre" => 31, "Noviembre" => 30, "Diciembre" => 31];
         $diasSemnana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+        $dia = 3;
 
         foreach($meses as $mes => $dias) {
+            //muestro los dias de la semana
             echo "<p>$mes</p>";
-            echo '<table class="tabla">';
+            echo '<table class="dia">';
             echo '<tr>';
             foreach($diasSemnana as $semana){
                 echo "<td>$semana</td>";
             }
 
-            echo '</table>';
+            echo '</tr>';
             echo '<tr>';
-            
-            for($i = 1; $i <= $dias ; $i++) {
-                echo $i;
+            //crear dias vacios de principios de mes
+            for($j=1 ; $j < $dia ; $j++){
+                echo '<td></td>';
             }
+            //mostrar los dias del mes
+            for($i = 1; $i <= $dias ; $i++) {
+                echo "<td>$i</td>";
+                $dia++;
+                //si hemos llegado al domingo (dia 7), volvemos al lunes y cambiamos fila
+                if($dia > 7) {
+                    $dia = 1;
+                    echo "</tr><tr>";
+                }
+
+            }
+            
+            echo "</tr>";
+            echo '</table>';
         } 
     ?>
 

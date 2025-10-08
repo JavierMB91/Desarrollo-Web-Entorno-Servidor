@@ -20,4 +20,23 @@
 }
 
 
+.dia {
+    border: solid 1px;
+    width: 200px;
+    text-align: center;
+    font-weight: 700;
+    background-color: white;
+}
 
+.dia tr, .dia td {
+    border: solid 1px;
+}
+
+.dia td {
+    padding: 0.5rem;
+}
+
+.dia tr:first-child {
+    background-color: blueviolet;
+    color: white;
+}
