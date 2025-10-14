@@ -138,5 +138,65 @@
     echo "<p>Ciudad con menos población: $ciudad_min ($min_poblacion habitantes)</p>";
 
 ?>
+
+    <h1>Ejercicio 2</h1>
+<?php
+    $clase = [
+        "Antonio" => [
+            "Notas" => [
+                "Matemáticas" => 5,
+                "Lengua" => 8.3,
+                "Ciencias Naturales" => 9,
+                "Geografía" => 7,
+            ],
+        ],
+        "Ana" => [
+            "Notas" => [
+                "Matemáticas" => 8,
+                "Lengua" => 7,
+                "Ciencias Naturales" => 4.5,
+                "Geografía" => 9,
+            ],
+        ],
+        "Benito" => [
+            "Notas" => [
+                "Matemáticas" => 9,
+                "Lengua" => 6.75,
+                "Ciencias Naturales" => 9,
+                "Geografía" => 3.1,
+            ],
+        ],
+    ];
+
+// 1. Crear la tabla y la cabecera
+echo '<table class="tabla3" border="1">'; // border="1" ayuda a ver las celdas
+echo '<tr>';
+echo '<th>Alumno</th>';
+echo '<th>Matemáticas</th>';
+echo '<th>Lengua</th>';
+echo '<th>Ciencias Naturales</th>';
+echo '<th>Geografía</th>';
+echo '</tr>';
+
+// 2. Recorrer cada alumno
+foreach($clase as $nombre_alumno => $datos_alumno) {
+    echo '<tr>';
+    
+    // 3. Imprimir el nombre del alumno
+    echo "<td>$nombre_alumno</td>";
+    
+    // 4. Acceder a las notas y imprimirlas en cada celda
+    // $datos_alumno['Notas'] nos da el array de las notas de ese alumno
+    echo '<td>' . $datos_alumno['Notas']['Matemáticas'] . '</td>';
+    echo '<td>' . $datos_alumno['Notas']['Lengua'] . '</td>';
+    echo '<td>' . $datos_alumno['Notas']['Ciencias Naturales'] . '</td>';
+    echo '<td>' . $datos_alumno['Notas']['Geografía'] . '</td>';
+    
+    echo '</tr>';
+}
+
+echo '</table>';
+
+?>
 </body>
 </html>

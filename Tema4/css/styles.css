@@ -17,3 +17,13 @@
     border: 1px solid black;
     text-align: center;
 }
+
+.tabla3 {
+    border: 1px solid black;
+    width: 20%;
+}
+
+.tabla3 tr, .tabla3 td {
+    border: 1px solid black;
+    text-align: center;
+}
