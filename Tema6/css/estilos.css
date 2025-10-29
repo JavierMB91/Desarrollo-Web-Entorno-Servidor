@@ -1,0 +1,300 @@
+/* ====== estilos.css ====== */
+/* Tema: Cuestionario de Cervezas 🍺 */
+/* Colores base: dorado, ámbar, marrón y blanco espuma */
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(180deg, #fff3b0 0%, #ffe066 100%);
+  color: #4b3f29;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #d17a00;
+  text-shadow: 2px 2px 0 #fff4b3;
+  margin-top: 30px;
+  font-size: 2.5rem;
+}
+
+h3 {
+  text-align: center;
+  color: #b35c00;
+  font-size: 1.8rem;
+  text-shadow: 1px 1px 0 #fff4b3;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+/* ====== FORMULARIO ====== */
+form {
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #fff9db;
+  border: 4px solid #f0c000;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(210, 150, 0, 0.3);
+  padding: 30px;
+}
+
+/* Cada bloque de pregunta */
+.pregunta {
+  margin-bottom: 25px;
+  background-color: #fff6cc;
+  border-radius: 15px;
+  padding: 15px 20px;
+  border-left: 6px solid #ffbf00;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pregunta:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 10px rgba(255, 191, 0, 0.3);
+}
+
+.pregunta h3 {
+  color: #b35c00;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Opciones */
+.opciones {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.opciones input[type="radio"] {
+  accent-color: #e0a800;
+  transform: scale(1.2);
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.opciones label {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.opciones label:hover {
+  background-color: #ffe799;
+  transform: scale(1.05);
+}
+
+/* Botón */
+button {
+  display: block;
+  margin: 30px auto 10px;
+  background-color: #ffb703;
+  color: #4b3f29;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #c68e00;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #ffd166;
+  box-shadow: 0 3px 0 #c68e00;
+  transform: translateY(2px);
+}
+
+/* Fondo con burbujas 🍺 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 2px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.3) 3px, transparent 3px),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.2) 4px, transparent 4px);
+  background-size: 200px 200px;
+  z-index: -1;
+  animation: burbujas 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes burbujas {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 0 -200px, 0 -300px, 0 -150px; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ====== RESULTADOS DEL TEST ====== */
+
+.resultado {
+  text-align: center;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #fff6cc, #ffe066);
+  border: 3px solid #f0c000;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(255, 190, 0, 0.3);
+}
+
+.resultado .nota {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4b3f29;
+  text-transform: uppercase;
+}
+
+.resultado .nota p {
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+
+/* Bloque de errores */
+.errores {
+  background-color: #fff3b0;
+  border: 2px dashed #ffb703;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 30px auto;
+  width: 85%;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(210, 150, 0, 0.2);
+}
+
+.errores h3 {
+  color: #b35c00;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 1px 1px 0 #fff4b3;
+}
+
+.incorrecta {
+  background-color: #ffe79a;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border-left: 5px solid #ff9f1c;
+  font-weight: bold;
+}
+
+.errores p {
+  margin: 5px 0;
+  color: #4b3f29;
+}
+
+/* ====== BANNER FINAL DEL TEST ====== */
+.banner-final {
+  position: relative;
+  background: linear-gradient(180deg, #ffe066, #ffb703);
+  border: 4px solid #f0c000;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(210, 150, 0, 0.3);
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px 20px 30px;
+  text-align: center;
+  color: #4b3f29;
+  overflow: hidden;
+}
+
+/* Espuma superior 🍺 */
+.banner-final::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: repeating-radial-gradient(
+    circle at 10% 10%,
+    #ffffff,
+    #ffffff 6px,
+    #fff8dc 7px,
+    #fff8dc 12px
+  );
+  border-radius: 50% 50% 0 0;
+}
+
+/* Título */
+.banner-final h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #b35c00;
+  text-shadow: 2px 2px 0 #fff6b0;
+}
+
+/* Nota final */
+.banner-final .nota p {
+  font-size: 1.3rem;
+  color: #4b3f29;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Colores de estado */
+.banner-final .nota strong.aprobado {
+  color: #2e7d32;
+  text-shadow: 1px 1px 0 #d9ffb3;
+}
+
+.banner-final .nota strong.suspenso {
+  color: #c62828;
+  text-shadow: 1px 1px 0 #ffcdd2;
+}
+
+/* Enlace reinicio */
+.banner-final a {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: #ffb703;
+  color: #4b3f29;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  box-shadow: 0 6px 0 #c68e00;
+  transition: all 0.2s ease;
+}
+
+.banner-final a:hover {
+  background-color: #ffd166;
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #c68e00;
+}
+
+/* Burbujeo animado en banner */
+@keyframes burbujeoFinal {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 0 -200px, 0 -300px, 0 -150px; }
+}
+
+.banner-final {
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.3) 2px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.25) 3px, transparent 3px),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.2) 4px, transparent 4px);
+  background-size: 200px 200px;
+  animation: burbujeoFinal 8s linear infinite;
+}
