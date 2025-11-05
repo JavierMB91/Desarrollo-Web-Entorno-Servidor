@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <h1>Subida de imágenes</h1>
+
+    <form action="mostrarimagenes.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="imagen1">Primera imágen: </label>
+            <input type="file" name="imagen1" id="imagen1" accept="image/*" required>
+        </div>
+
+        <div>
+            <label for="imagen2">Segunda imágen: </label>
+            <input type="file" name="imagen2" id="imagen2" accept="image/*" required>
+        </div>
+
+        <button type="submit">Subir imágenes</button>
+       
+
+    </form>
+</body>
+</html>

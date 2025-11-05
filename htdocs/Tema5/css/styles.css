@@ -1,0 +1,37 @@
+.alumno {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 40%;
+    table-layout: fixed;
+}
+
+.alumno th, .alumno td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+.color {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 40%;
+    table-layout: fixed;
+}
+
+.color th, .color td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+}
+
+.rojo {
+    background-color: #FF0000; 
+}
+
+.amarillo {
+    background-color: #FFFF00;
+}
+
+.verde {
+    background-color: #2bce46ff;
+}
