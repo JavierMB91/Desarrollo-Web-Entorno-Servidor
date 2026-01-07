@@ -1,0 +1,97 @@
+<?php
+session_start();
+require_once 'conexion.php';
+
+// ==========================
+// OBTENER TODOS LOS TESTIMONIOS
+// ==========================
+$sql = "SELECT 
+            t.id AS testimonio_id, 
+            u.nombre AS autor, 
+            t.contenido, 
+            t.fecha
+        FROM testimonio t
+        JOIN usuario u ON t.autor_id = u.id
+        ORDER BY t.fecha DESC";
+
+$stmt = $pdo->query($sql);
+$testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <title>Lista Comentarios</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body class="socios-body">
+<div class="container">
+
+<header>
+    <div class="titulo-con-logo">
+        <h1 class="titulo-club">Comentarios</h1>
+    </div>
+    <div id="nav"></div>
+</header>
+
+<main>
+
+<!-- =======================
+     MENSAJES DE SESIÓN
+======================= -->
+<?php if (isset($_SESSION['mensaje_exito'])): ?>
+    <div class="mensaje-exito">
+        <?= $_SESSION['mensaje_exito']; unset($_SESSION['mensaje_exito']); ?>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['mensaje_error'])): ?>
+    <div class="mensaje-error">
+        <?= $_SESSION['mensaje_error']; unset($_SESSION['mensaje_error']); ?>
+    </div>
+<?php endif; ?>
+
+<div class="contenedor-botones">
+    <a class="btn-atras" href="testimonio.php"><span>Nuevo Comentario</span></a>
+</div>
+
+<h2 class="titulo-club">Todos los comentarios</h2>
+
+<div class="testimonios-lista">
+    <?php if (empty($testimonios)): ?>
+                <div class="resultados-busqueda">
+                    <p>No se encontraron comentarios</p>
+                 </div>;
+    <?php else: ?>
+        <?php foreach ($testimonios as $t): ?>
+            <div class="tarjeta-testimonio">
+                <p><strong>ID:</strong> <?= $t["testimonio_id"] ?></p>
+                <p><strong>Autor:</strong> <?= htmlspecialchars($t["autor"]) ?></p>
+                <p class="comentario"><strong>Comentario:</strong> <?= nl2br(htmlspecialchars($t["contenido"])) ?></p>
+                <p class="fecha"><strong>Fecha:</strong> <?= date('d/m/Y', strtotime($t["fecha"])) ?></p>
+                <p class="hora"><strong>Hora:</strong> <?= date('H:i', strtotime($t["fecha"])) . ' ' . date('a', strtotime($t["fecha"])) ?></p>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+
+<div class="contenedor-botones">
+    <a href="index.php" class="btn-atras"><span>Volver</span></a>
+</div>
+
+</main>
+
+<div id="footer"></div>
+<script src="js/nav.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/transiciones.js"></script>
+
+</div>
+</body>
+</html>
