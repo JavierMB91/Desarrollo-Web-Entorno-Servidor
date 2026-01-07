@@ -1,5 +1,6 @@
 <?php
 require_once 'conexion.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,7 +23,7 @@ require_once 'conexion.php';
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Libreria</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
 
 

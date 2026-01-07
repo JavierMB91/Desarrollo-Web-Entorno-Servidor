@@ -1,11 +1,13 @@
 <nav class="navegador">
     <ul class="menu">
-        <?php session_start(); ?>
+        <!-- Ya no ponemos session_start() aquí, asumimos que ya se inició en el archivo padre -->
+        
         <?php if (isset($_SESSION['usuario'])): ?>
             <li><a href="logout.php">Cerrar Sesión</a></li>
         <?php else: ?>
             <li><a href="login.php">Login</a></li>
         <?php endif; ?>
+        
         <li><a href="index.php">Inicio</a></li>
         <li><a href="socios.php">Listado de Socios</a></li>
         <li><a href="socio.php">Hazte Socio</a></li>
