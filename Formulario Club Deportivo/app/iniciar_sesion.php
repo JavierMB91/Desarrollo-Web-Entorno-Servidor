@@ -2,11 +2,10 @@
 session_start();
 require_once 'conexion.php';
 
-/* Recoger datos del formulario */
-$usuario  = $_POST['usuario'] ?? '';
+$nombre  = $_POST['nombre'] ?? '';
 $password = $_POST['password'] ?? '';
 
-if (empty($usuario) || empty($password)) {
+if (empty($nombre) || empty($password)) {
     header('Location: login.php?error=1');
     exit();
 }
@@ -17,7 +16,7 @@ $stmt = $pdo->prepare(
      FROM usuario 
      WHERE nombre = ?"
 );
-$stmt->execute([$usuario]);
+$stmt->execute([$nombre]);
 $usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
 
 /* Verificar contraseña */
@@ -29,3 +28,4 @@ if ($usuarioDB && password_verify($password, $usuarioDB['password'])) {
     header('Location: login.php?error=1');
     exit();
 }
+
