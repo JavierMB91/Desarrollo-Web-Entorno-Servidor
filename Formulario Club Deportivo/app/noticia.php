@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Nueva Noticia</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
 <main>
 <form action="" method="post" enctype="multipart/form-data" id="formularioNoticia">
@@ -120,7 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <div id="footer"></div>
 <script src="js/funcionesNoticia.js"></script>
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 </div>

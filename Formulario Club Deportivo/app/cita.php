@@ -70,7 +70,7 @@ function h($s) {
       <div class="titulo-con-logo">
         <h1 class="titulo-club">Agendar Lectura Guiada</h1>
       </div>
-      <div id="nav"></div>
+      <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
     </header>
     <main>
       <h2 class="titulo-club">Nueva Cita</h2>
@@ -122,7 +122,6 @@ function h($s) {
   </div>
 
   <script src="js/funcionesCita.js"></script>
-  <script src="js/nav.js"></script>
   <script src="js/footer.js"></script>
   <script src="js/transiciones.js"></script>
 </body>

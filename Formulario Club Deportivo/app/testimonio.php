@@ -62,7 +62,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Nuevo Comentario</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
 
 <main>
@@ -107,7 +107,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div id="footer"></div>
 
 <script src="js/funcionesTestimonio.js"></script>
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 

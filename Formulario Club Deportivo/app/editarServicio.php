@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <h1 class="titulo-club">Editar servicio</h1>
 
-<div id="nav"></div>
+<?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 
 <div class="container">
 
@@ -133,7 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div id="footer"></div>
 
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/funcionesEditarServicio.js"></script>
 <script src="js/transiciones.js"></script>

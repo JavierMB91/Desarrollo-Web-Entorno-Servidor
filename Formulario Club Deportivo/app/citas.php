@@ -118,7 +118,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Sección Citas</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
     <!-- ======================== -->
     <!-- MENSAJE DE ESTADO -->
@@ -303,7 +303,6 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     </div>
 </div>
 
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 <script src="js/modal.js"></script>

@@ -28,7 +28,7 @@ require_once 'conexion.php';
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Sección Socios</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
 
 <div class="container">
@@ -117,7 +117,6 @@ require_once 'conexion.php';
 
 <div id="footer"></div>
 
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 

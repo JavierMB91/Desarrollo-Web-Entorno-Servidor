@@ -28,7 +28,7 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="titulo-con-logo">
         <h1 class="titulo-club">Noticias</h1>
     </div>
-    <div id="nav"></div>
+    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
 
 <main class="ver-noticia">
@@ -57,7 +57,6 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
 </div>
 
 <div id="footer"></div>
-<script src="js/nav.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 <script src="js/modalVerNoticia.js"></script>
