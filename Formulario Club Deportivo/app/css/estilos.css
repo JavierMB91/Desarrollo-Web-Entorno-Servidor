@@ -301,6 +301,54 @@ header {
     100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
 }
 
+/* ===== ESTILOS ESPECÍFICOS PARA PERFIL.PHP ===== */
+
+/* Título del perfil (Texto oscuro para fondo claro de papel) */
+.perfil-titulo {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--ebano-oscuro); /* Oscuro para contraste con el fondo papel */
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.perfil-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--dorado-viejo);
+    border-radius: 2px;
+}
+
+/* Contenedor y estilo de la foto de perfil */
+.foto-perfil {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.foto-perfil img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%; /* Hace la imagen circular */
+    border: 4px solid var(--dorado-viejo); /* Borde dorado elegante */
+    box-shadow: 0 4px 10px var(--sombra-media);
+    transition: var(--transicion-suave);
+    background-color: #f0f0f0; /* Fondo gris claro por si no hay imagen */
+}
+
+.foto-perfil img:hover {
+    transform: scale(1.05);
+    border-color: var(--dorado-brillante);
+    box-shadow: 0 8px 20px var(--sombra-ebano);
+}
 
 /* ===== CONTENIDO GENERAL ===== */
 section {

@@ -1,7 +1,7 @@
 <?php
 
 function is_loged_in() {
-    return isset($_SESSION['usuario']);
+    return isset($_SESSION['id']) && !empty($_SESSION['id']);
 }
 
 function require_login() {
