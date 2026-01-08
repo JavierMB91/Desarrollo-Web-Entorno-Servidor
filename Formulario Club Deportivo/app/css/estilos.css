@@ -164,36 +164,141 @@ header {
 
 /* Desplegable Login */
 
-.user-menu {
-    position: relative; /* Para que el dropdown se posicione respecto al botón */
-    display: inline-block;
-}
+/* Alineación de la sección de autenticación */
 
-.dropdown-menu {
-    display: none;        /* Oculto por defecto */
-    position: absolute;   /* Posición relativa a .user-menu */
-    top: 100%;            /* Justo debajo del botón */
-    right: 0;             /* Alineado a la derecha */
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    min-width: 150px;
-    z-index: 1000;
-}
-
-.dropdown-menu a {
+/* --- Usuario NO Logueado --- */
+.login-link {
     display: block;
-    padding: 8px 12px;
-    color: #333;
+    padding: 0.8rem 1.5rem;
+    color: var(--papel-antiguo);
     text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: var(--transicion-suave);
+    position: relative;
+    overflow: hidden;
 }
 
-.dropdown-menu a:hover {
-    background-color: #f0f0f0;
+.login-link:hover {
+    background: var(--ebano-oscuro);
+    color: var(--dorado-brillante);
+    border-color: var(--dorado-brillante);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Usuario Logueado (Botón) --- */
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem; /* igual que .menu li a */
+    background: transparent;
+    border: 1px solid var(--dorado-viejo);
+    border-radius: 30px;
+    cursor: pointer;
+    color: var(--dorado-brillante);
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    transition: var(--transicion-suave);
+}
+
+
+.user-button:hover {
+    background: var(--ebano-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* Rotación de la flecha al abrir */
+.arrow {
+    transition: transform 0.3s ease;
+}
+.user-button.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* --- Dropdown (Menú Desplegable) --- */
+.user-menu {
+    position: relative;
+}
+
+/* Menú desplegable */
+/* Menú desplegable estilo consistente con el nav */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: linear-gradient(135deg, var(--ebano-oscuro), var(--ebano-medio));
+    border-radius: 30px;
+    box-shadow: 0 8px 20px var(--sombra-media);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transicion-suave);
+    overflow: hidden;
+    z-index: 100;
 }
 
 .dropdown-menu.show {
-    display: block; /* Se muestra al togglear la clase */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.8rem 1.5rem;
+    color: var(--papel-antiguo);
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    border-radius: 0;
+    transition: var(--transicion-suave);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: var(--ebano-oscuro);
+    color: var(--dorado-brillante);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.dropdown-item .icon {
+    font-size: 16px;
+}
+
+/* Indicador de estado Online */
+.user-icon {
+    position: relative;
+}
+
+.user-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -4px; /* Ajuste fino de la posición */
+    width: 10px;
+    height: 10px;
+    background-color: var(--verde-suave); /* Color verde brillante */
+    border: 2px solid var(--ebano-medio); /* Borde para separar del icono */
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--verde-suave);
+    animation: pulse-green 2s infinite; /* Animación de pulso */
+}
+
+/* Animación del pulso verde */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
 }
 
 

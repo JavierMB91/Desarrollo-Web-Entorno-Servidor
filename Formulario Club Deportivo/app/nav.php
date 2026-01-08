@@ -4,7 +4,7 @@
         
       
         
-        <div class="auth-section">
+        
             <?php if(isset($_SESSION['nombre'])): ?>
                 <!-- Usuario logueado -->
                 <div class="user-menu">
@@ -27,7 +27,7 @@
                 <!-- Usuario no logueado -->
                 <a href="login.php" class="login-link">Iniciar sesión</a>
             <?php endif; ?>
-        </div>
+        
 
 
         <li><a href="index.php">Inicio</a></li>
