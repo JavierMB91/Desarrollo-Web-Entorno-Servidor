@@ -162,6 +162,41 @@ header {
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
+/* Desplegable Login */
+
+.user-menu {
+    position: relative; /* Para que el dropdown se posicione respecto al botón */
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;        /* Oculto por defecto */
+    position: absolute;   /* Posición relativa a .user-menu */
+    top: 100%;            /* Justo debajo del botón */
+    right: 0;             /* Alineado a la derecha */
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menu.show {
+    display: block; /* Se muestra al togglear la clase */
+}
+
+
 /* ===== CONTENIDO GENERAL ===== */
 section {
     background: linear-gradient(135deg, var(--papel-antiguo), var(--papel-claro));

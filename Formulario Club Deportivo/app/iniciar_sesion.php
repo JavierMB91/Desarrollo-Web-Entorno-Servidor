@@ -21,7 +21,7 @@ $usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
 
 /* Verificar contraseña */
 if ($usuarioDB && password_verify($password, $usuarioDB['password'])) {
-    $_SESSION['usuario'] = $usuarioDB['nombre'];
+    $_SESSION['nombre'] = $usuarioDB['nombre'];
     header('Location: index.php');
     exit();
 } else {
