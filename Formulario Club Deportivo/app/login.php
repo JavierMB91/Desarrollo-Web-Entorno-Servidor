@@ -5,7 +5,6 @@ if (is_loged_in()) {
     header('Location: index.php');
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -22,43 +21,43 @@ if (is_loged_in()) {
 </head>
 <body>
     <header>
-    <div class="titulo-con-logo">
-        <h1 class="titulo-club">Iniciar Sesion</h1>
-    </div>
-    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
+        <div class="titulo-con-logo">
+            <h1 class="titulo-club">Iniciar Sesión</h1>
+        </div>
+        <?php include 'nav.php'; ?>
     </header>
 
     <main>
-    <form action="iniciar_sesion.php" method="post" enctype="multipart/form-data" id="formularioLogin">
+        <form action="iniciar_sesion.php" method="post" enctype="multipart/form-data" id="formularioLogin">
 
-    <div class="bloque-form">
-        <label for="nombre">Nombre de nombre</label>
-        <input id="nombre" type="text" name="nombre" placeholder="Nombre">
-        <span id="nombreError" class="error"></span>
-    </div>
+            <div class="bloque-form">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" type="text" name="telefono" placeholder="Teléfono" value="">
+            </div>
 
-    <div class="bloque-form">
-        <label for="password">Contraseña</label>
-        <input id="password" type="password" name="password" placeholder="Contraseña">
-        <span id="passwordError" class="error"></span>
-    </div>
+            <div class="bloque-form">
+                <label for="password">Contraseña</label>
+                <input id="password" type="password" name="password" placeholder="Contraseña">
+            </div>
 
-    <div class="contenedor-botones">
-        <button type="submit"><span>Entrar</span></button>
-        <a href="index.php" class="btn-atras"><span>Volver</span></a>
-    </div>
+            <?php
+            // Mostrar mensaje general de error
+            if (isset($_GET['error'])) {
+                echo '<p class="error" style="text-align:center; margin-top:10px;">❌ Teléfono o contraseña incorrecta</p>';
+            }
+            ?>
 
-    </form>
+            <div class="contenedor-botones">
+                <button type="submit"><span>Entrar</span></button>
+                <a href="index.php" class="btn-atras"><span>Volver</span></a>
+            </div>
+
+
+        </form>
     </main>
 
-
-    <?php if (isset($_GET['error'])): ?>
-        <p style="color:red;">❌ Nombre o contraseña incorrectos</p>
-    <?php endif; ?>
-    
     <div id="footer"></div>
 
-    <script src="js/login.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/transiciones.js"></script>
 </body>

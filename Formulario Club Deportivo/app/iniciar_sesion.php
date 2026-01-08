@@ -2,30 +2,34 @@
 session_start();
 require_once 'conexion.php';
 
-$nombre  = $_POST['nombre'] ?? '';
-$password = $_POST['password'] ?? '';
+$telefono  = $_POST['telefono'] ?? '';
+$password  = $_POST['password'] ?? '';
 
-if (empty($nombre) || empty($password)) {
-    header('Location: login.php?error=1');
-    exit();
-}
+$login_incorrecto = false;
 
-/* Buscar usuario en la BD */
-$stmt = $pdo->prepare(
-    "SELECT nombre, password 
-     FROM usuario 
-     WHERE nombre = ?"
-);
-$stmt->execute([$nombre]);
-$usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
+// Validar campos vacíos
+if (!empty($telefono) && !empty($password)) {
+    // Intentar buscar usuario
+    $stmt = $pdo->prepare("SELECT nombre, password FROM usuario WHERE BINARY telefono = ?");
+    $stmt->execute([$telefono]);
+    $usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
 
-/* Verificar contraseña */
-if ($usuarioDB && password_verify($password, $usuarioDB['password'])) {
-    $_SESSION['nombre'] = $usuarioDB['nombre'];
-    header('Location: index.php');
-    exit();
+    if (!$usuarioDB || !password_verify($password, $usuarioDB['password'])) {
+        // Teléfono o contraseña incorrecta
+        $login_incorrecto = true;
+    }
 } else {
-    header('Location: login.php?error=1');
+    // Si faltan datos también mostramos error
+    $login_incorrecto = true;
+}
+
+if ($login_incorrecto) {
+    // Redirigir con flag de error simple
+    header("Location: login.php?error=1");
     exit();
 }
 
+// Login correcto
+$_SESSION['nombre'] = $usuarioDB['nombre'];
+header('Location: index.php');
+exit();
