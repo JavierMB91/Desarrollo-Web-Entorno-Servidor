@@ -27,7 +27,7 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon/favicon.ico">
     <title>Lista Comentarios</title>
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body class="socios-body">
@@ -57,9 +57,11 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 <?php endif; ?>
 
-<div class="contenedor-botones">
-    <a class="btn-atras" href="testimonio.php"><span>Nuevo Comentario</span></a>
-</div>
+<?php if (isset($_SESSION['id']) && in_array($_SESSION['rol'] ?? '', ['administrador', 'socio'])): ?>
+    <div class="contenedor-botones">
+        <a class="btn-atras" href="testimonio.php"><span>Nuevo Comentario</span></a>
+    </div>
+<?php endif; ?>
 
 <h2 class="titulo-club">Todos los comentarios</h2>
 
@@ -67,11 +69,13 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (empty($testimonios)): ?>
                 <div class="resultados-busqueda">
                     <p>No se encontraron comentarios</p>
-                 </div>;
+                 </div>
     <?php else: ?>
         <?php foreach ($testimonios as $t): ?>
             <div class="tarjeta-testimonio">
-                <p><strong>ID:</strong> <?= $t["testimonio_id"] ?></p>
+                <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+                    <p><strong>ID:</strong> <?= $t["testimonio_id"] ?></p>
+                <?php endif; ?>
                 <p><strong>Autor:</strong> <?= htmlspecialchars($t["autor"]) ?></p>
                 <p class="comentario"><strong>Comentario:</strong> <?= nl2br(htmlspecialchars($t["contenido"])) ?></p>
                 <p class="fecha"><strong>Fecha:</strong> <?= date('d/m/Y', strtotime($t["fecha"])) ?></p>

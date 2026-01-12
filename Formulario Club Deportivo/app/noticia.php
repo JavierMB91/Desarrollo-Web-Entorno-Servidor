@@ -2,6 +2,12 @@
 session_start();
 require_once 'conexion.php';
 
+// Verificar si es administrador para poder crear noticias
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'administrador') {
+    header("Location: noticias.php");
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $titulo = $_POST["titulo"] ?? '';

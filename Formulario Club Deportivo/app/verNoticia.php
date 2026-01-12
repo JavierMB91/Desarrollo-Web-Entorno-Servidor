@@ -1,5 +1,12 @@
 <?php
+session_start();
 require_once 'conexion.php';
+
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
 
 $id = $_GET["id"];
 

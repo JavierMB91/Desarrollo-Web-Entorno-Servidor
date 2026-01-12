@@ -2,11 +2,18 @@
 session_start();
 require_once 'conexion.php'; // tu conexión PDO
 
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // ==========================
 // 1. Procesar el formulario
 // ==========================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $cliente = intval($_POST['cliente']);
+    // Si es admin toma el post, si es socio toma su sesión
+    $cliente = ($_SESSION['rol'] === 'administrador') ? intval($_POST['cliente']) : $_SESSION['id'];
     $servicio = intval($_POST['servicio']);
     $dia = $_POST['dia'];
     $hora = $_POST['hora'];
@@ -38,8 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // ==========================
 // 2. Traer participantes y servicios
 // ==========================
-$stmtClientes = $pdo->query("SELECT id, nombre FROM usuario WHERE rol='socio' ORDER BY nombre");
-$clientes = $stmtClientes->fetchAll(PDO::FETCH_ASSOC);
+$clientes = [];
+if ($_SESSION['rol'] === 'administrador') {
+    $stmtClientes = $pdo->query("SELECT id, nombre FROM usuario WHERE rol='socio' ORDER BY nombre");
+    $clientes = $stmtClientes->fetchAll(PDO::FETCH_ASSOC);
+}
 
 $stmtServicios = $pdo->query("SELECT id, nombre, duracion FROM servicio ORDER BY nombre");
 $servicios = $stmtServicios->fetchAll(PDO::FETCH_ASSOC);
@@ -79,13 +89,18 @@ function h($s) {
 
         <div class="bloque-form">
           <label for="cliente">Participante</label>
-          <select id="cliente" name="cliente">
-            <option value="">Seleccionar participante</option>
-            <?php foreach ($clientes as $c): ?>
-              <option value="<?= $c['id'] ?>"><?= h($c['nombre']) ?></option>
-            <?php endforeach; ?>
-          </select>
-          <span id="clienteError" class="error"></span>
+          <?php if ($_SESSION['rol'] === 'administrador'): ?>
+              <select id="cliente" name="cliente">
+                <option value="">Seleccionar participante</option>
+                <?php foreach ($clientes as $c): ?>
+                  <option value="<?= $c['id'] ?>"><?= h($c['nombre']) ?></option>
+                <?php endforeach; ?>
+              </select>
+              <span id="clienteError" class="error"></span>
+          <?php else: ?>
+              <input type="text" id="cliente" value="<?= h($_SESSION['nombre']) ?>" disabled>
+              <!-- No enviamos input hidden 'cliente' aquí porque lo cogemos de sesión en PHP por seguridad -->
+          <?php endif; ?>
         </div>
 
         <div class="bloque-form">

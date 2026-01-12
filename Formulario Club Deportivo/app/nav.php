@@ -31,12 +31,20 @@
 
 
         <li><a href="index.php">Inicio</a></li>
-        <li><a href="socios.php">Listado de Socios</a></li>
+        
+        <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+            <li><a href="socios.php">Listado de Socios</a></li>
+        <?php endif; ?>
+
         <li><a href="socio.php">Hazte Socio</a></li>
         <li><a href="servicios.php">Actividades</a></li>
         <li><a href="comentario.php">Comentarios</a></li>
-        <li><a href="noticias.php">Noticias</a></li>
-        <li><a href="citas.php">Agendar Actividad</a></li>
+        <?php if (isset($_SESSION['id'])): ?>
+            <li><a href="noticias.php">Noticias</a></li>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['id'])): ?>
+            <li><a href="citas.php">Agendar Actividad</a></li>
+        <?php endif; ?>
     </ul>
 </nav>
 

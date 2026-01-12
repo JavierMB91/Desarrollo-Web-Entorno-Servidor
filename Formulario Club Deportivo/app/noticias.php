@@ -2,6 +2,12 @@
 session_start();
 require_once 'conexion.php';
 
+// Verificar si el usuario está logueado para ver las noticias
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // Cantidad de noticias por página
 $porPagina = 4;
 
@@ -74,9 +80,11 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h2 class="titulo-club">Ultimas noticias</h2>
 
 <!-- Botón para crear noticia -->
-<div class="contenedor-botones">
-    <a class="btn" href="noticia.php"><span>Nueva Noticia</span></a>
-</div>
+<?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+    <div class="contenedor-botones">
+        <a class="btn" href="noticia.php"><span>Nueva Noticia</span></a>
+    </div>
+<?php endif; ?>
 
 <section class="lista-noticias">
 

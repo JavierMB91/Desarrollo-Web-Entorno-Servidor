@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'conexion.php';
 ?>
 
@@ -61,7 +62,9 @@ require_once 'conexion.php';
 
                 <div class="contenedor-botones">
                     <button type="submit"><span>Buscar</span></button>
-                    <a href="servicio.php" class="btn-atras"><span>Agregar nueva Actividad</span></a>
+                    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
+                        <a href="servicio.php" class="btn-atras"><span>Agregar nueva Actividad</span></a>
+                    <?php endif; ?>
                     <a href="servicios.php" class="btn-atras"><span>Mostrar todas</span></a>
                 </div>
             </form>
@@ -98,11 +101,13 @@ require_once 'conexion.php';
                     // No mostrar la hora en el listado (el usuario solicitó eliminarla)
 
                     // BOTÓN EDITAR
-                    echo '<div class="contenedor-botones">
-                            <a href="editarServicio.php?id=' . $servicio['id'] . '" class="btn-atras">
-                                <span>Editar</span>
-                            </a>
-                          </div>';
+                    if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador') {
+                        echo '<div class="contenedor-botones">
+                                <a href="editarServicio.php?id=' . $servicio['id'] . '" class="btn-atras">
+                                    <span>Editar</span>
+                                </a>
+                              </div>';
+                    }
 
                     echo '</div>';
                 }

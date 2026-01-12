@@ -1,5 +1,12 @@
 <?php
+session_start();
 require_once 'conexion.php';
+
+// Verificar si es administrador
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'administrador') {
+    header("Location: servicios.php");
+    exit;
+}
 
 // ========================
 // 1. Comprobar si llega un ID

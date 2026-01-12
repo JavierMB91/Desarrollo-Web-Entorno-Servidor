@@ -3,6 +3,23 @@ session_start();
 require_once 'conexion.php';
 
 // ========================
+// 0. SEGURIDAD: SOLO ADMIN
+// ========================
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+// Verificar rol
+$stmtCheck = $pdo->prepare("SELECT rol FROM usuario WHERE id = ?");
+$stmtCheck->execute([$_SESSION['id']]);
+$currentUser = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+
+if (!$currentUser || $currentUser['rol'] !== 'administrador') {
+    header("Location: index.php");
+    exit;
+}
+
+// ========================
 // 1. Comprobar si llega un ID
 // ========================
 if (!isset($_GET['id'])) {

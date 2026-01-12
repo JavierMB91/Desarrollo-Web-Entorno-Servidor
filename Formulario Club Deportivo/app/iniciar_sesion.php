@@ -10,7 +10,7 @@ $login_incorrecto = false;
 // Validar campos vacíos
 if (!empty($telefono) && !empty($password)) {
     // Intentar buscar usuario por teléfono
-    $stmt = $pdo->prepare("SELECT id, nombre, password FROM usuario WHERE BINARY telefono = ?");
+    $stmt = $pdo->prepare("SELECT id, nombre, password, rol FROM usuario WHERE BINARY telefono = ?");
     $stmt->execute([$telefono]);
     $usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -32,6 +32,7 @@ if ($login_incorrecto) {
 // Login correcto: guardar nombre y id en la sesión
 $_SESSION['nombre'] = $usuarioDB['nombre'];
 $_SESSION['id'] = $usuarioDB['id'];
+$_SESSION['rol'] = $usuarioDB['rol'];
 
 header('Location: index.php');
 exit();

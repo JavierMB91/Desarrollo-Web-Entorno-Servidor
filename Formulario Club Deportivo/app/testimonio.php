@@ -2,9 +2,16 @@
 session_start();
 require_once 'conexion.php';
 
+// Verificar si el usuario está logueado y es Administrador o Socio
+if (!isset($_SESSION['id']) || !in_array($_SESSION['rol'] ?? '', ['administrador', 'socio'])) {
+    header("Location: login.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $autor_id = $_POST['autor_id'] ?? '';
+    // Usar siempre el ID del usuario logueado
+    $autor_id = $_SESSION['id'];
     $contenido = trim($_POST['contenido'] ?? '');
 
     if (!$autor_id || !$contenido) {
@@ -37,9 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-// Obtener todos los usuarios para el select
-$stmt = $pdo->query("SELECT id, nombre FROM usuario ORDER BY nombre");
-$usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -80,11 +84,8 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="bloque-form">
         <label for="autor_id">Autor del comentario</label>
-        <select name="autor_id" id="autor_id">
-            <?php foreach($usuarios as $u): ?>
-                <option value="<?= $u['id'] ?>"><?= htmlspecialchars($u['nombre']) ?></option>
-            <?php endforeach; ?>
-        </select>
+        <input type="text" id="autor_id" value="<?= htmlspecialchars($_SESSION['nombre']) ?>" disabled>
+        <!-- El ID se toma de la sesión en el POST -->
         <span id="autorError" class="error"></span>
     </div>
 

@@ -4,6 +4,11 @@ $db   = getenv("DB_NAME");
 $user = getenv("DB_USER");
 $pass = getenv("DB_PASSWORD");
 
+// $host = ("sql100.infinityfree.com");
+// $db   = ("if0_40888308_mi_aplicacion");
+// $user = ("if0_40888308");
+// $pass = ("M5tkkw8ww");
+
 try {
     $pdo = new PDO(
         "mysql:host=$host;dbname=$db;charset=utf8",

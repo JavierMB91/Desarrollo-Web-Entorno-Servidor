@@ -2,6 +2,12 @@
 session_start();
 require_once 'conexion.php';
 
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // ---------- Parámetros ----------
 $mes  = isset($_GET['mes'])  ? intval($_GET['mes'])  : intval(date('n'));
 $anio = isset($_GET['anio']) ? intval($_GET['anio']) : intval(date('Y'));
@@ -26,6 +32,13 @@ $prevAnio = intval($dtPrev->format('Y'));
 $nextMes = intval($dtNext->format('n'));
 $nextAnio = intval($dtNext->format('Y'));
 
+// Array de nombres de meses
+$nombresMeses = [
+    1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril',
+    5 => 'Mayo', 6 => 'Junio', 7 => 'Julio', 8 => 'Agosto',
+    9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre'
+];
+
 // Manejo de borrado
 $msg = '';
 if (isset($_GET['borrar'])) {
@@ -45,14 +58,24 @@ if (isset($_GET['borrar'])) {
 }
 
 // Obtener citas del mes
-$stmtMes = $pdo->prepare("
-    SELECT c.id, c.fecha, c.hora, u.nombre AS socio, u.telefono, s.nombre AS servicio, s.duracion, s.precio
+// Si es administrador ve todas, si es socio solo las suyas
+$sqlMes = "
+    SELECT c.id, c.fecha, c.hora, u.nombre AS socio, u.telefono, s.nombre AS servicio, s.duracion, s.precio, c.socio_id
     FROM cita c
     JOIN usuario u ON c.socio_id = u.id
     JOIN servicio s ON c.servicio_id = s.id
     WHERE MONTH(c.fecha) = :mes AND YEAR(c.fecha) = :anio
-");
-$stmtMes->execute([':mes' => $mes, ':anio' => $anio]);
+";
+
+$paramsMes = [':mes' => $mes, ':anio' => $anio];
+
+if ($_SESSION['rol'] !== 'administrador') {
+    $sqlMes .= " AND c.socio_id = :uid";
+    $paramsMes[':uid'] = $_SESSION['id'];
+}
+
+$stmtMes = $pdo->prepare($sqlMes);
+$stmtMes->execute($paramsMes);
 $citasMes = $stmtMes->fetchAll(PDO::FETCH_ASSOC);
 
 $citasPorDia = [];
@@ -75,11 +98,19 @@ if ($busqueda !== '') {
            OR c.fecha = :fechaQ
         ORDER BY c.fecha, c.hora
     ";
+    
+    // Filtrar búsqueda también
+    if ($_SESSION['rol'] !== 'administrador') {
+        // Insertamos la condición antes del ORDER BY
+        $sql = str_replace("ORDER BY", "AND c.socio_id = :uid ORDER BY", $sql);
+    }
+
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ':likeQ'  => "%{$busqueda}%",
-        ':fechaQ' => $busqueda
-    ]);
+    $paramsBusqueda = [':likeQ' => "%{$busqueda}%", ':fechaQ' => $busqueda];
+    if ($_SESSION['rol'] !== 'administrador') {
+        $paramsBusqueda[':uid'] = $_SESSION['id'];
+    }
+    $stmt->execute($paramsBusqueda);
     $resultadosBusqueda = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -253,7 +284,10 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <!-- ======================== -->
     <div class="contenedor-botones">
         <a href="citas.php?mes=<?= $prevMes ?>&anio=<?= $prevAnio ?>" class="btn-atras, btn-mes">◀ Mes anterior</a>
-        <h2><?= h($mes) ?>/<?= h($anio) ?></h2>
+        <h2 style="margin: 0; display: flex; flex-direction: column; align-items: center;">
+            <?= $nombresMeses[$mes] ?>
+            <span style="font-size: 1.1rem; margin-top: 0.2rem;"><?= h($mes) ?>/<?= h($anio) ?></span>
+        </h2>
         <a href="citas.php?mes=<?= $nextMes ?>&anio=<?= $nextAnio ?>" class="btn-atras, btn-mes">Mes siguiente ▶</a>
     </div>
 
