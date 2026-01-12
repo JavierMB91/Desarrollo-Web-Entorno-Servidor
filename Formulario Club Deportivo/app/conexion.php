@@ -1,13 +1,18 @@
 <?php
-// $host = getenv("DB_HOST");
-// $db   = getenv("DB_NAME");
-// $user = getenv("DB_USER");
-// $pass = getenv("DB_PASSWORD");
-
-$host = ("sql100.infinityfree.com");
-$db   = ("if0_40888308_mi_aplicacion");
-$user = ("if0_40888308");
-$pass = ("M5tkkw8ww");
+// Detectar entorno: Si es localhost usa credenciales locales, si no, las de InfinityFree
+if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.0.0.1') {
+    // Credenciales LOCALES (XAMPP, etc.)
+    $host = getenv("DB_HOST");
+    $db   = getenv("DB_NAME");
+    $user = getenv("DB_USER");
+    $pass = getenv("DB_PASSWORD");
+} else {
+    // Credenciales INFINITYFREE
+    $host = "sql100.infinityfree.com";
+    $db   = "if0_40888308_mi_aplicacion";
+    $user = "if0_40888308";
+    $pass = "M5tkkw8ww";
+}
 
 try {
     $pdo = new PDO(
