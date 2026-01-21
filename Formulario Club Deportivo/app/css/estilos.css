@@ -116,6 +116,9 @@ header {
     position: sticky;
     top: 90px;
     z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .menu {
@@ -124,6 +127,7 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    flex: 1;
 }
 
 .menu li a {
@@ -299,6 +303,238 @@ header {
     0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
     70% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
     100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* ===== MENÚ HAMBURGUESA Y RESPONSIVE ===== */
+
+/* Botón Hamburguesa - Oculto por defecto */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 95;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: var(--dorado-viejo);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación de líneas del hamburguesa cuando se activa */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Sección de autenticación */
+.auth-desktop {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-mobile {
+    display: none;
+}
+
+/* ===== MEDIA QUERIES - RESPONSIVE ===== */
+
+/* TABLETS Y DISPOSITIVOS MEDIANOS (hasta 1024px) */
+@media (max-width: 1024px) {
+    .menu {
+        gap: 0.5rem;
+    }
+
+    .menu li a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .user-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .user-name {
+        display: none;
+    }
+}
+
+/* TABLETS Y DISPOSITIVOS PEQUEÑOS (hasta 768px) */
+@media (max-width: 768px) {
+    .navegador {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Menú por defecto oculto */
+    .menu {
+        position: fixed;
+        top: 150px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: linear-gradient(135deg, var(--ebano-oscuro), var(--ebano-medio));
+        padding: 2rem 1rem;
+        gap: 0.5rem;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 88;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        justify-content: flex-start;
+        border-bottom: 2px solid var(--dorado-viejo);
+    }
+
+    /* Menú activo */
+    .menu.active {
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu li a {
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        border-left: 3px solid transparent;
+        border-radius: 0;
+        font-size: 1rem;
+        transition: var(--transicion-suave);
+    }
+
+    .menu li a:hover {
+        border-left-color: var(--dorado-brillante);
+        padding-left: 1.5rem;
+        background: var(--ebano-oscuro);
+    }
+
+    /* Sección de autenticación móvil */
+    .auth-mobile {
+        display: block;
+        width: 100%;
+        border-top: 1px solid var(--dorado-viejo);
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    .auth-mobile .user-menu {
+        width: 100%;
+    }
+
+    .auth-mobile .user-button,
+    .auth-mobile .login-link {
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Ocultar autenticación de escritorio */
+    .auth-desktop {
+        display: none;
+    }
+
+    /* Dropdown en móvil */
+    .auth-mobile .dropdown-menu {
+        position: static;
+        top: auto;
+        right: auto;
+        margin-top: 0.5rem;
+        border-radius: 0;
+        width: 100%;
+        transform: none;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .auth-mobile .dropdown-menu.show {
+        opacity: 1;
+        visibility: visible;
+        max-height: 300px;
+    }
+
+    .auth-mobile .dropdown-item {
+        padding: 0.8rem 1rem;
+        border-left: 3px solid var(--dorado-viejo);
+    }
+}
+
+/* MÓVILES (hasta 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    .titulo-club {
+        font-size: 1.8rem;
+        margin-left: 0;
+    }
+
+    .logo-club {
+        height: 50px;
+        transform: translate(0%, 0%);
+        position: relative;
+        left: 0;
+    }
+
+    .navegador {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .hamburger-line {
+        width: 22px;
+        height: 2.5px;
+    }
+
+    .menu {
+        top: 140px;
+        padding: 1.5rem 0.8rem;
+    }
+
+    .menu li a {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .auth-mobile .user-button,
+    .auth-mobile .login-link {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .user-icon {
+        font-size: 1.2rem;
+    }
 }
 
 /* ===== ESTILOS ESPECÍFICOS PARA PERFIL.PHP ===== */
@@ -1409,7 +1645,7 @@ footer {
 /* Mobile phones (portrait) */
 @media (max-width: 575.98px) {
     header { padding: 1rem 0.5rem; }
-    .titulo-club { font-size: 1.6rem; letter-spacing: 1px; }
+    .titulo-club { font-size: 1.6rem; letter-spacing: 1px;}
     .logo-club {
         position: absolute;
         left: 8px;
