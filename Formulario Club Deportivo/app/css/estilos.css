@@ -311,7 +311,7 @@ header {
 .hamburger-btn {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
@@ -329,7 +329,7 @@ header {
 
 /* Animación de líneas del hamburguesa cuando se activa */
 .hamburger-btn.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(2) {
@@ -337,7 +337,7 @@ header {
 }
 
 .hamburger-btn.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Sección de autenticación */
@@ -522,7 +522,7 @@ header {
 
     .hamburger-line {
         width: 22px;
-        height: 2.5px;
+        height: 3px;
     }
 
     .menu {
