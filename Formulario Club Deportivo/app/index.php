@@ -31,6 +31,14 @@ session_start();
     <div class="principal">
 
     <!-- ============================ -->
+    <!--        BIENVENIDA            -->
+    <!-- ============================ -->
+    <section class="bienvenida">
+        <img src="uploads/img/fondo_principal.jpg" alt="Fondo principal" class="imagen-bienvenida">
+        <h2 class="texto-bienvenida">Bienvenido a la Libreria</h2>
+    </section>
+
+    <!-- ============================ -->
     <!--          NOTICIAS            -->
     <!-- ============================ -->
     <h2 class="titulo-seccion">Últimas noticias</h2>

@@ -1661,6 +1661,43 @@ footer {
     border-top: 3px solid var(--dorado-viejo);
 }
 
+/* ===== SECCIÓN BIENVENIDA ===== */
+.bienvenida {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px var(--sombra-ebano);
+}
+
+.bienvenida .imagen-bienvenida {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.bienvenida .texto-bienvenida {
+    position: relative;
+    z-index: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--papel-antiguo);
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+    padding: 0 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
 /* ===== MEDIA QUERIES: RESPONSIVE (MÓVILES, TABLETS, TABLET+ ===== */
 /* Mobile phones (portrait) */
 @media (max-width: 575.98px) {
@@ -1680,6 +1717,8 @@ footer {
     main { margin: 1rem auto; padding: 0 0.75rem; }
     section { padding: 1rem; border-radius: 10px; }
     .titulo-seccion, .lista-noticias h2, .titulo-noticia { font-size: 1.4rem; }
+    .bienvenida { height: 250px; margin-bottom: 1.5rem; }
+    .bienvenida .texto-bienvenida { font-size: 1.8rem; padding: 1rem; }
     form { padding: 1.2rem; margin: 1rem; max-width: 100%; }
     .bloque-form input, .bloque-form select, .bloque-form textarea { font-size: 1rem; padding: 0.8rem; }
     .bloque-form img { width: 100%; max-width: 100%; margin: 1rem 0; }
@@ -1704,6 +1743,8 @@ footer {
     .menu li a { padding: 0.7rem 1rem; font-size: 1rem; }
     main { margin: 1.5rem auto; padding: 0 1rem; }
     section { padding: 1.2rem; }
+    .bienvenida { height: 300px; margin-bottom: 1.8rem; }
+    .bienvenida .texto-bienvenida { font-size: 2rem; }
     form { max-width: 90%; padding: 1.5rem; }
     .noticias-grid { grid-template-columns: repeat(2, 1fr); }
     .noticia-card { height: auto; }
