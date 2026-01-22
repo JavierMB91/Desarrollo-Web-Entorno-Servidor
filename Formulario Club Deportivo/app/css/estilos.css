@@ -412,9 +412,12 @@ header {
     /* Menú activo */
     .menu.active {
         max-height: calc(100vh - 150px);
+        width: calc(100% - 20px); /* deja espacio total */
+        margin-top: -38px;
+        margin-left: 10px;        /* lateral izquierdo */
+        margin-right: 0;          /* lateral derecho */
         opacity: 1;
         visibility: visible;
-        margin-top: -38px;
         border-radius: 10px;
     }
 
