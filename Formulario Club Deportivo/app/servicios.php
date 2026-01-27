@@ -134,5 +134,6 @@ require_once 'conexion.php';
     
     <script src="js/footer.js"></script>
     <script src="js/transiciones.js"></script>
+    <script src="js/asistente.js" defer></script>
 </body>
 </html>

@@ -166,6 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="js/funcionesSocio.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
+<script src="js/asistente.js" defer></script>
 
 </div>
 </body>

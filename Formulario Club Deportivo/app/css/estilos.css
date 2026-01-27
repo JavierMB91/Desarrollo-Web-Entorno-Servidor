@@ -1766,3 +1766,209 @@ footer {
 img, picture, .imagen-noticia { max-width: 100%; height: auto; }
 
 /* Fin Media Queries */
+
+/* ===== ASISTENTE ===== */
+.asistente-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--dorado-viejo);
+    transition: var(--transicion-suave);
+    z-index: 9999;
+    box-shadow: 0 4px 10px var(--sombra-ebano);
+}
+
+.asistente-toggler:hover {
+    background: var(--dorado-brillante);
+    transform: scale(1.1);
+}
+
+.asistente-toggler span {
+    color: var(--ebano-oscuro);
+    position: absolute;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.asistente-toggler span:last-child,
+body.show-asistente .asistente-toggler span:first-child  {
+    opacity: 0;
+}
+
+body.show-asistente .asistente-toggler span:last-child {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.asistente {
+    position: fixed;
+    right: 35px;
+    bottom: 90px;
+    width: 350px;
+    background: var(--papel-claro);
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    transform-origin: bottom right;
+    box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+    transition: all 0.1s ease;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--dorado-viejo);
+}
+
+body.show-asistente .asistente {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.asistente header {
+    padding: 16px 0;
+    position: relative;
+    text-align: center;
+    color: var(--papel-antiguo);
+    background: var(--ebano-medio);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--dorado-viejo);
+}
+
+.asistente header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.asistente .chatbox {
+    overflow-y: auto;
+    height: 420px; /* Aumentado de 300px a 420px */
+    padding: 15px 20px 70px;
+    background: var(--papel-claro);
+    list-style: none;
+}
+
+.chatbox .chat {
+    display: flex;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.chatbox .outgoing {
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.chatbox .chat p {
+    white-space: pre-wrap;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 10px;
+    max-width: 75%;
+    color: var(--papel-antiguo);
+    font-size: 0.95rem;
+    background: var(--ebano-medio);
+    font-family: 'Roboto Slab', serif;
+}
+
+.chatbox .incoming p {
+    border-radius: 10px 10px 10px 0;
+    color: var(--ebano-oscuro);
+    background: #fff;
+    border: 1px solid var(--dorado-viejo);
+}
+
+.asistente .chat-input {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--papel-antiguo);
+    padding: 3px 20px;
+    border-top: 1px solid var(--madera-ebano);
+}
+
+.chat-input textarea {
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    max-height: 180px;
+    padding: 15px 15px 15px 0;
+    font-size: 0.95rem;
+    background: transparent;
+    color: var(--ebano-oscuro);
+    font-family: 'Lora', serif;
+}
+
+.chat-input span {
+    align-self: flex-end;
+    color: var(--dorado-viejo);
+    cursor: pointer;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    font-size: 1.35rem;
+}
+
+.chat-input textarea:valid ~ span {
+    visibility: visible;
+}
+
+/* Estilos para los botones de opciones del chat */
+.chat-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.option-btn {
+    background: var(--papel-claro);
+    border: 1px solid var(--dorado-viejo);
+    color: var(--ebano-oscuro);
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Slab', serif;
+}
+
+.option-btn:hover {
+    background: var(--dorado-viejo);
+    color: var(--papel-antiguo);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 490px) {
+    .asistente-toggler {
+        right: 20px;
+        bottom: 20px;
+    }
+    .asistente {
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        border-radius: 0;
+        width: 100%;
+    }
+    .asistente .chatbox {
+        height: 90%;
+        padding: 25px 15px 100px;
+    }
+}
