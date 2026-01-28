@@ -95,7 +95,7 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <article class="noticia-card">
 
                 <!-- Imagen -->
-                <img src="uploads/noticias/<?= htmlspecialchars($n['imagen']) ?>" alt="<?= htmlspecialchars($n['titulo']) ?>" class="imagen-noticia">
+                <img src="uploads/noticias/<?= htmlspecialchars($n['imagen']) ?>" alt="<?= htmlspecialchars($n['titulo']) ?>" class="imagen-noticia" loading="lazy" decoding="async" width="400" height="200">
 
 
                 <!-- Título -->

@@ -62,7 +62,7 @@ session_start();
 
                 echo '<article class="noticia-card">';
                 
-                echo '<img src="uploads/noticias/' . htmlspecialchars($n["imagen"]) . '" class="imagen-noticia" alt="' . htmlspecialchars($n["titulo"]) . '">';
+                echo '<img src="uploads/noticias/' . htmlspecialchars($n["imagen"]) . '" class="imagen-noticia" alt="' . htmlspecialchars($n["titulo"]) . '" loading="lazy" decoding="async" width="400" height="200">';
 
                 
                 echo '<h3>' . htmlspecialchars($n["titulo"]) . '</h3>';
