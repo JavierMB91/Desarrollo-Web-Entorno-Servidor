@@ -22,7 +22,7 @@ if (is_loged_in()) {
 <body>
     <header>
         <div class="titulo-con-logo">
-            <h1 class="titulo-club">Iniciar Sesión</h1>
+            <h1 class="titulo-principal">Iniciar Sesión</h1>
         </div>
         <?php include 'nav.php'; ?>
     </header>
