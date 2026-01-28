@@ -53,7 +53,7 @@ if (isset($_GET['borrar'])) {
         header('Location: citas.php?mes=' . $mes . '&anio=' . $anio);
         exit;
     } else {
-        $msg = "No se puede borrar una cita pasada o la del día actual.";
+        $msg = "No se puede borrar una reserva pasada o la del día actual.";
     }
 }
 
@@ -76,12 +76,12 @@ if ($_SESSION['rol'] !== 'administrador') {
 
 $stmtMes = $pdo->prepare($sqlMes);
 $stmtMes->execute($paramsMes);
-$citasMes = $stmtMes->fetchAll(PDO::FETCH_ASSOC);
+$reservasMes = $stmtMes->fetchAll(PDO::FETCH_ASSOC);
 
-$citasPorDia = [];
-foreach ($citasMes as $c) {
+$reservasPorDia = [];
+foreach ($reservasMes as $c) {
     $d = intval(date('j', strtotime($c['fecha'])));
-    $citasPorDia[$d][] = $c;
+    $reservasPorDia[$d][] = $c;
 }
 
 // Búsqueda
@@ -127,7 +127,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon/favicon.ico">
-    <title>Sección Citas</title>
+    <title>Sección de Reservas</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -147,7 +147,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Sección Citas</h1>
+        <h1 class="titulo-principal">Sección de Reservas</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
@@ -170,7 +170,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
             <input type="text" name="q" placeholder="Buscar por socio, teléfono, fecha o servicio" value="<?= h($busqueda) ?>">
             <div class="contenedor-botones">
                 <button type="submit"><span>Buscar</span></button>
-                <a href="cita.php" class="btn-atras"><span>Nueva cita</span></a>
+                <a href="cita.php" class="btn-atras"><span>Nueva Reserva</span></a>
                 <a href="citas.php" class="btn-atras"><span>Mostrar Calendario</span></a>
             </div>
         </form>
@@ -180,7 +180,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 <!-- RESULTADOS DE BÚSQUEDA -->
 <!-- ======================== -->
 <?php if ($busqueda !== ''): ?>
-    <h2 class="titulo-club">Resultados de búsqueda para "<?= h($busqueda) ?>"</h2>
+    <h2 class="titulo-principal">Resultados de búsqueda para "<?= h($busqueda) ?>"</h2>
     <div class="resultados-busqueda">
         <?php if (!empty($resultadosBusqueda)): ?>
             <?php foreach ($resultadosBusqueda as $c): ?>
@@ -219,7 +219,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
             <?php endforeach; ?>
         <?php else: ?>
             <div class="resultados-busqueda">    
-            <p>No se encontraron citas.</p>
+            <p>No se encontraron reservas.</p>
             </div>
         <?php endif; ?>
     </div>
@@ -228,14 +228,14 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 
     
 <!-- ======================== -->
-<!-- CITAS DEL DÍA SELECCIONADO -->
+<!-- RESERVAS DEL DÍA SELECCIONADO -->
 <!-- ======================== -->
 <?php if ($diaSeleccionado): ?>
-    <h2 class="titulo-club">Citas del día <?= h($diaSeleccionado) ?>/<?= h($mes) ?>/<?= h($anio) ?></h2>
+    <h2 class="titulo-principal">Reservas del día <?= h($diaSeleccionado) ?>/<?= h($mes) ?>/<?= h($anio) ?></h2>
     <div class="citas-dia">
         <?php
-        if (!empty($citasPorDia[$diaSeleccionado])) {
-            foreach ($citasPorDia[$diaSeleccionado] as $c) {
+        if (!empty($reservasPorDia[$diaSeleccionado])) {
+            foreach ($reservasPorDia[$diaSeleccionado] as $c) {
                 echo '<div class="socio-card cita-card">'; ?>
                 <?php
                     // Mostrar hora como HH:MM seguido de am/pm (ej. 18:00 pm)
@@ -272,7 +272,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
             }
         } else {
             echo '<div class="resultados-busqueda">
-                    <p>No se encontraron citas</p>
+                    <p>No se encontraron reservas</p>
                  </div>';
         }
         ?>
@@ -307,10 +307,10 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
                 for ($i = 1; $i < $primerDiaSemana; $i++) echo '<td></td>';
                 $posSemana = $primerDiaSemana;
                 for ($d = 1; $d <= $diasMes; $d++) {
-                    $tiene = !empty($citasPorDia[$d]);
+                    $tiene = !empty($reservasPorDia[$d]);
                     echo '<td class="clickable" onclick="location.href=\'citas.php?dia='.$d.'&mes='.$mes.'&anio='.$anio.'\';">';
                     echo '<div>' . h($d) . '</div>';
-                    if ($tiene) echo '<div><small>(' . count($citasPorDia[$d]) . ')</small></div>';
+                    if ($tiene) echo '<div><small>(' . count($reservasPorDia[$d]) . ')</small></div>';
                     echo '</td>';
                     if ($posSemana == 7) { echo '</tr>'; if ($d != $diasMes) echo '<tr>'; $posSemana = 0; }
                     $posSemana++;
@@ -331,7 +331,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 
 <div id="modalCancelar" class="modal">
     <div class="modal-content">
-        <p>¿Deseas cancelar esta cita?</p>
+        <p>¿Deseas cancelar esta reserva?</p>
         <button id="confirmarCancelar" class="btn-atras btn-modal">Sí, cancelar</button>
         <button id="cerrarModal" class="btn-atras btn-modal">No, mantener</button>
     </div>

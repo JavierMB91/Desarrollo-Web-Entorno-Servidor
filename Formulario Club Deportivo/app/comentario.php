@@ -35,7 +35,7 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Comentarios</h1>
+        <h1 class="titulo-principal">Comentarios</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
@@ -63,7 +63,7 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 <?php endif; ?>
 
-<h2 class="titulo-club">Todos los comentarios</h2>
+<h2 class="titulo-principal">Todos los comentarios</h2>
 
 <div class="testimonios-lista">
     <?php if (empty($testimonios)): ?>

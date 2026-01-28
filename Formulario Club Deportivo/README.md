@@ -1,10 +1,10 @@
-# Club Deportivo - Aplicación Web de Gestión
+# Librería - Aplicación Web de Gestión
 
-Bienvenido al repositorio del proyecto **Club Deportivo**. Esta es una aplicación web completa desarrollada en PHP y MySQL para la gestión integral de un centro deportivo, permitiendo la administración de socios, servicios, citas y noticias.
+Bienvenido al repositorio del proyecto **Librería**. Esta es una aplicación web completa desarrollada en PHP y MySQL para la gestión integral de una librería, permitiendo la administración de socios, servicios, reservas y noticias.
 
 ## 📋 Características Principales
 
-### 1. Gestión de Usuarios (Socios)
+### 1. Gestión de Usuarios (Socios/Lectores)
 - **CRUD Completo:** Registro, listado, edición y eliminación de socios.
 - **Perfiles:** Subida y actualización de fotos de perfil (validación de formato JPG/JPEG y tamaño).
 - **Seguridad:** Control de acceso basado en roles (Administrador vs. Usuario) y contraseñas hasheadas.
@@ -12,18 +12,18 @@ Bienvenido al repositorio del proyecto **Club Deportivo**. Esta es una aplicaci�
 
 ### 2. Gestión de Servicios
 - Administración de las actividades del club.
-- Control de detalles: nombre, descripción, duración (minutos), precio y horarios.
+- Control de detalles: nombre, descripción, duración (para eventos/talleres), precio y horarios.
 - Validación de datos específicos (ej. duración mínima de 15 min).
 
-### 3. Sistema de Citas y Calendario
-- Reserva de servicios por parte de los clientes.
+### 3. Sistema de Reservas y Calendario
+- Reserva de salas de estudio o inscripción a eventos por parte de los socios.
 - Validación de fechas (no permitir fechas pasadas) y horarios.
 - Visualización de disponibilidad.
 
 ### 4. Interfaz y Diseño (UI/UX)
 - **Diseño Responsivo:** Adaptado a móviles, tablets y escritorio mediante Media Queries.
 - **Estética Personalizada:** Tema visual "Dark Academia" / Elegante utilizando variables CSS (`--ebano-oscuro`, `--dorado-viejo`, `--papel-antiguo`).
-- **Componentes Interactivos:** Menú hamburguesa, desplegables de usuario, modales y un asistente virtual (chatbot UI).
+- **Componentes Interactivos:** Menú hamburguesa, desplegables de usuario, modales y un asistente virtual (chatbot UI) para resolver dudas sobre la librería.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -44,7 +44,7 @@ app/
 │   ├── funcionesAñadirSocio.js  # Validaciones para nuevos socios
 │   ├── funcionesEditarSocio.js  # Validaciones para edición y fotos
 │   ├── funcionesServicio.js     # Lógica para gestión de servicios
-│   ├── funcionesCita.js         # Lógica para reservas
+│   ├── funcionesCita.js         # Lógica para el sistema de reservas
 │   └── ...
 ├── uploads/
 │   └── usuarios/            # Directorio para imágenes de perfil de socios
@@ -59,7 +59,7 @@ app/
 1. **Base de Datos:**
    - Asegúrate de tener un servidor MySQL corriendo.
    - Importa el esquema de la base de datos (tablas: `usuario`, `servicio`, `cita`, etc.).
-
+ 
 2. **Configuración de Conexión (`conexion.php`):**
    El sistema detecta automáticamente el entorno.
    - **Localhost:** Utiliza variables de entorno (`DB_HOST`, `DB_USER`...) o configura tus credenciales locales en el archivo.
@@ -75,6 +75,6 @@ app/
 - **Estilos:** Uso extensivo de variables CSS (`:root`) para mantener la consistencia en la paleta de colores y transiciones suaves.
 
 ---
-
+ 
 ### Autor
 Desarrollado como parte del módulo de **Desarrollo Web en Entorno Servidor (2º DAW)**.

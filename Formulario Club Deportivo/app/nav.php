@@ -131,3 +131,6 @@
         });
     }
 </script>
+
+<!-- Cargar el asistente en todas las páginas que usan la navegación -->
+<script src="js/asistente.js" defer></script>

@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Registro de Miembro</h1>
+        <h1 class="titulo-principal">Registro de Miembro</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
@@ -166,7 +166,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="js/funcionesSocio.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
-<script src="js/asistente.js" defer></script>
 
 </div>
 </body>

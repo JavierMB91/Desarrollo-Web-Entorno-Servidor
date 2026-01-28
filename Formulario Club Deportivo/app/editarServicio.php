@@ -78,9 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="servicios-body">
 
-<h1 class="titulo-club">Editar servicio</h1>
+<h1 class="titulo-principal">Editar servicio</h1>
 
-<?php include 'nav.php'; ?> <!-- Antes era nav.html -->
+<?php include 'nav.php'; ?>
 
 <div class="container">
 

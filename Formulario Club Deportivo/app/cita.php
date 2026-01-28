@@ -78,12 +78,12 @@ function h($s) {
   <div class="container">
     <header>
       <div class="titulo-con-logo">
-        <h1 class="titulo-club">Agendar Lectura Guiada</h1>
+        <h1 class="titulo-principal">Agendar Lectura Guiada</h1>
       </div>
       <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
     </header>
     <main>
-      <h2 class="titulo-club">Nueva Cita</h2>
+      <h2 class="titulo-principal">Nueva Cita</h2>
 
       <form action="" method="post" enctype="multipart/form-data" id="formularioCita">
 

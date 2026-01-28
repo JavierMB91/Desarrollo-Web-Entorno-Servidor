@@ -50,7 +50,7 @@ $stmt->execute(['q' => "%$busqueda%"]);
 
         <header>
             <div class="titulo-con-logo">
-                <h1 class="titulo-club">Gestión de Socios</h1>
+                <h1 class="titulo-principal">Gestión de Socios</h1>
             </div>
             <?php include 'nav.php'; ?>
         </header>
@@ -108,7 +108,6 @@ $stmt->execute(['q' => "%$busqueda%"]);
 
         <div id="footer"></div>
         <script src="js/footer.js"></script>
-        <script src="js/asistente.js" defer></script>
     </div>
 </body>
 </html>

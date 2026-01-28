@@ -49,7 +49,6 @@ body {
     align-items: center;
     width: 100%;
 }
-
 .logo-club {
     position: absolute;
     left: 50%;
@@ -83,7 +82,7 @@ header {
     z-index: 100;
 }
 
-.titulo-club {
+.titulo-principal {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     text-align: center;
@@ -96,7 +95,7 @@ header {
     width: 100%;
 }
 
-.titulo-club::after {
+.titulo-principal::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -514,12 +513,12 @@ header {
         padding: 1rem 0.5rem;
     }
 
-    .titulo-club {
+    .titulo-principal {
         font-size: 1.8rem;
         margin-left: 0;
     }
 
-    .logo-club {
+    .logo-libreria {
         height: 50px;
         transform: translate(0%, 0%);
         position: relative;
@@ -1702,7 +1701,7 @@ footer {
 /* Mobile phones (portrait) */
 @media (max-width: 575.98px) {
     header { padding: 1rem 0.5rem; }
-    .titulo-club { font-size: 1.6rem; letter-spacing: 1px;}
+    .titulo-principal { font-size: 1.6rem; letter-spacing: 1px;}
     .logo-club {
         position: absolute;
         left: 8px;
@@ -1737,7 +1736,7 @@ footer {
 /* Small devices / tablets */
 @media (min-width: 576px) and (max-width: 991.98px) {
     header { padding: 1.2rem 0.75rem; }
-    .titulo-club { font-size: 2rem; }
+    .titulo-principal { font-size: 2rem; }
     .logo-club { height: 62px; transform: translate(-190%, -5%); }
     .menu { gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
     .menu li a { padding: 0.7rem 1rem; font-size: 1rem; }

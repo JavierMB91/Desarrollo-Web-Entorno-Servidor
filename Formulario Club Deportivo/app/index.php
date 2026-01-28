@@ -21,7 +21,7 @@ session_start();
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Libreria</h1>
+        <h1 class="titulo-principal">Libreria</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>

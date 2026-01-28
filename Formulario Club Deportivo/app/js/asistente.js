@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Variable para almacenar datos de la BD
-    let clubData = { servicios: [], noticias: [] };
+    let libreriaData = { servicios: [], noticias: [] };
 
     // Cargar datos desde la API PHP
     fetch('asistente_api.php')
         .then(res => res.json())
         .then(data => {
-            clubData = data;
+            libreriaData = data;
         })
         .catch(err => console.error("Error cargando datos del asistente:", err));
 
@@ -94,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (msg.includes("precio") || msg.includes("costo") || msg.includes("tarifa") || msg.includes("cuota")) {
             response = "Algunos servicios son gratuitos (préstamo de libros) y otros tienen coste (sala estudio 6€, asesoramiento 15€). Consulta la sección 'Actividades'.";
             // Usar datos reales de la BD
-            if (clubData.servicios.length > 0) {
-                let precios = clubData.servicios.slice(0, 3).map(s => `• ${s.nombre}: ${s.precio}`).join("\n");
+            if (libreriaData.servicios.length > 0) {
+                let precios = libreriaData.servicios.slice(0, 3).map(s => `• ${s.nombre}: ${s.precio}`).join("\n");
                 response = "Aquí tienes algunas de nuestras tarifas:\n" + precios + "\n\nEntra en nuestra sección 'Actividades' para ver más.";
             }
         } else if (msg.includes("donde") || msg.includes("ubicacion") || msg.includes("direccion") || msg.includes("calle")) {
@@ -103,13 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (msg.includes("actividad") || msg.includes("servicio") || msg.includes("libro")) {
             response = "Ofrecemos préstamo de libros, salas de estudio, club de lectura y acceso a ordenadores. ¡Mira la sección Actividades!";
             // Usar datos reales de la BD
-            if (clubData.servicios.length > 0) {
-                let lista = clubData.servicios.slice(0, 3).map(s => `• ${s.nombre}`).join("\n");
+            if (libreriaData.servicios.length > 0) {
+                let lista = libreriaData.servicios.slice(0, 3).map(s => `• ${s.nombre}`).join("\n");
                 response = "Estos son algunos de nuestros servicios:\n" + lista + "\n\nEntra en nuestra sección 'Actividades' para ver más.";
             }
         } else if (msg.includes("noticia") || msg.includes("novedad") || msg.includes("evento")) {
-            if (clubData.noticias.length > 0) {
-                let listaNoticias = clubData.noticias.map(n => `📰 ${n.titulo}`).join("\n"); // La API ya limita a 3
+            if (libreriaData.noticias.length > 0) {
+                let listaNoticias = libreriaData.noticias.map(n => `📰 ${n.titulo}`).join("\n"); // La API ya limita a 3
                 response = "Estas son las últimas novedades:\n" + listaNoticias + "\n\nEntra en nuestra sección 'Noticias' para ver más.";
             } else {
                 response = "No hay noticias recientes por el momento.";
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (msg.includes("registro") || msg.includes("socio") || msg.includes("apuntar")) {
             response = "Puedes registrarte como socio haciendo clic en el botón 'Registrarse' del menú superior.";
         } else if (msg.includes("cita") || msg.includes("reserva")) {
-            response = "Para reservar una sala o servicio, debes iniciar sesión y acceder al apartado de Citas.";
+            response = "Para reservar una sala o servicio, debes iniciar sesión y acceder al apartado de Reservas.";
         } else if (msg.includes("contacto") || msg.includes("telefono")) {
             response = "Puedes contactarnos en el formulario de la web o llamando al 600 123 456.";
         }

@@ -45,7 +45,7 @@ require_once 'conexion.php';
     <!-- ======================== -->
     <header>
         <div class="titulo-con-logo">
-            <h1 class="titulo-club">Actividades</h1>
+            <h1 class="titulo-principal">Actividades</h1>
         </div>
         <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
     </header>
@@ -54,7 +54,7 @@ require_once 'conexion.php';
         <!-- BUSCADOR + BOTONES -->
         <!-- ======================== -->
         <main>
-            <h2 class="titulo-club">Listado de Actividades</h2>
+            <h2 class="titulo-principal">Listado de Actividades</h2>
             <form method="get" action="servicios.php">
                 <input type="text" name="q" 
                        placeholder="Buscar por nombre de actividad"

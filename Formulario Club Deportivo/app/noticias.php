@@ -71,13 +71,13 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Noticias</h1>
+        <h1 class="titulo-principal">Noticias</h1>
     </div>
-    <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
+    <?php include 'nav.php'; ?>
 </header>
 
 <main>
-    <h2 class="titulo-club">Ultimas noticias</h2>
+    <h2 class="titulo-principal">Últimas noticias</h2>
 
 <!-- Botón para crear noticia -->
 <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
@@ -142,7 +142,6 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
-<script src="js/asistente.js" defer></script>
 
 </div>
 </body>
