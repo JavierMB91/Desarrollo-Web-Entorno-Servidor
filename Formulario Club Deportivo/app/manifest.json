@@ -1,0 +1,21 @@
+{
+  "name": "Librería - Gestión de Socios y Actividades",
+  "short_name": "Librería",
+  "description": "Aplicación de gestión para socios, actividades y noticias de la Librería.",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#1e1e1e",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

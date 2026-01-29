@@ -127,6 +127,8 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
     <title>Sección de Reservas</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
@@ -340,6 +342,20 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 <script src="js/modal.js"></script>
+<script>
+    // Registrar el Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/js/sw.js')
+                .then(registration => {
+                    console.log('ServiceWorker registrado con éxito:', registration.scope);
+                })
+                .catch(err => {
+                    console.log('Fallo en el registro del ServiceWorker:', err);
+                });
+        });
+    }
+</script>
 
 </body>
 </html>
