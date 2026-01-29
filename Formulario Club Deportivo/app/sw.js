@@ -1,4 +1,4 @@
-const CACHE_NAME = 'club-deportivo-cache-v1';
+const CACHE_NAME = 'club-deportivo-cache-v2';
 const urlsToCache = [
   './',
   'index.php',
@@ -13,6 +13,7 @@ const urlsToCache = [
 
 // Instala el Service Worker y cachea los archivos principales
 self.addEventListener('install', event => {
+  self.skipWaiting(); // Fuerza al SW a activarse de inmediato
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -22,12 +23,33 @@ self.addEventListener('install', event => {
   );
 });
 
+// Activa el SW y limpia cachés antiguas
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+  return self.clients.claim(); // Toma el control de las páginas inmediatamente
+});
+
 // Intercepta las peticiones y sirve desde la caché si es posible
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-  );
+  // Estrategia Network First para navegación (HTML) para ver cambios de sesión
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+  } else {
+    // Estrategia Cache First para recursos estáticos (CSS, JS, Imágenes)
+    event.respondWith(
+      caches.match(event.request).then(response => response || fetch(event.request))
+    );
+  }
 });

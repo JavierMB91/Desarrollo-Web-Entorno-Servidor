@@ -20,14 +20,8 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon/favicon.ico">
-    <title>Lista Comentarios</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <?php $tituloPagina = "Lista Comentarios"; ?>
+    <?php include 'head.php'; ?>
 </head>
 
 <body class="socios-body">
