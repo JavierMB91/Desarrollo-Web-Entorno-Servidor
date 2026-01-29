@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Evitar duplicados si el script se carga dos veces
+    if (document.querySelector('.asistente-container')) return;
+
     // Variable para almacenar datos de la BD
     let libreriaData = { servicios: [], noticias: [] };
 

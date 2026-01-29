@@ -143,7 +143,6 @@ session_start();
 
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
-<script src="js/asistente.js" defer></script>
 
 </div>
 </body>
