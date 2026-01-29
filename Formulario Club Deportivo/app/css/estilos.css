@@ -1697,6 +1697,24 @@ footer {
     border-radius: 8px;
 }
 
+/* ===== VIDEO PROMOCIONAL ===== */
+.contenedor-video {
+    width: 100%;
+    max-width: 900px;
+    margin: 1rem auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px var(--sombra-ebano);
+    border: 3px solid var(--dorado-viejo);
+    background: var(--ebano-oscuro);
+}
+
+.contenedor-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ===== MEDIA QUERIES: RESPONSIVE (MÓVILES, TABLETS, TABLET+ ===== */
 /* Mobile phones (portrait) */
 @media (max-width: 575.98px) {

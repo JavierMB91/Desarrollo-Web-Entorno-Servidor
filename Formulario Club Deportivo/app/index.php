@@ -38,6 +38,18 @@ session_start();
         <h2 class="texto-bienvenida">Bienvenido a la Libreria</h2>
     </section>
 
+    <h2 class="titulo-seccion">Conoce nuestra Librería</h2>
+    <section>
+    <div class="contenedor-video">
+        <video controls width="100%">
+            <!-- Reemplaza 'video.mp4' con el nombre real de tu archivo -->
+            <source src="uploads/video/Libreria__Creando_comunidad.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+</section>
+
+
     <!-- ============================ -->
     <!--          NOTICIAS            -->
     <!-- ============================ -->
