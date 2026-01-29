@@ -2,7 +2,7 @@
   "name": "Librería - Gestión de Socios y Actividades",
   "short_name": "Librería",
   "description": "Aplicación de gestión para socios, actividades y noticias de la Librería.",
-  "start_url": "/index.php",
+  "start_url": "./index.php",
   "display": "standalone",
   "background_color": "#1e1e1e",
   "theme_color": "#121212",

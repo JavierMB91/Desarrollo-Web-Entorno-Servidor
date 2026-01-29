@@ -12,6 +12,8 @@ require_once 'conexion.php';
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Lista Servicios</title>
 </head>
@@ -135,5 +137,19 @@ require_once 'conexion.php';
     <script src="js/footer.js"></script>
     <script src="js/transiciones.js"></script>
     <script src="js/asistente.js" defer></script>
+    <script>
+        // Registrar el Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrado con éxito:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('Fallo en el registro del ServiceWorker:', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

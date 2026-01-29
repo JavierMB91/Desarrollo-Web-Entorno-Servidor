@@ -1700,7 +1700,7 @@ footer {
 /* ===== VIDEO PROMOCIONAL ===== */
 .contenedor-video {
     width: 100%;
-    max-width: 900px;
+    max-width: 894px;
     margin: 1rem auto;
     border-radius: 10px;
     overflow: hidden;
@@ -1708,12 +1708,21 @@ footer {
     border: 3px solid var(--dorado-viejo);
     background: var(--ebano-oscuro);
     position: relative;
+    /* Truco para forzar una proporción 16:9 (9 / 16 = 56.25%) */
+    /* Esto crea un contenedor con la altura correcta en relación a su anchura. */
+    height: 0;
+    padding-top: 56.25%;
     z-index: 1;
 }
 
 .contenedor-video video {
+    /* Posicionamos el video para que llene el contenedor padre */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Recorta el video para llenar el espacio sin deformarlo */
     display: block;
 }
 
@@ -1785,6 +1794,26 @@ footer {
 img, picture, .imagen-noticia { max-width: 100%; height: auto; }
 
 /* Fin Media Queries */
+
+/* ===== SECCIÓN INSTALAR PWA ===== */
+.instalacion-app {
+    background: linear-gradient(135deg, var(--papel-antiguo), var(--papel-claro));
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--sombra-media);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.instalacion-app p {
+    color: var(--madera-ebano);
+}
+
+.instrucciones-ios {
+    display: none; /* Oculto por defecto */
+    margin-top: 1rem;
+    color: var(--ebano-medio);
+}
 
 /* ===== ASISTENTE ===== */
 .asistente-toggler {

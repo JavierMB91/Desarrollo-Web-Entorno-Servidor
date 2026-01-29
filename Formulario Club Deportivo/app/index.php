@@ -12,6 +12,8 @@ session_start();
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="shortcut icon" href="favicon/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
     <link rel="stylesheet" href="css/estilos.css">
     <title>Inicio</title>
 </head>
@@ -128,6 +130,21 @@ session_start();
 </section>
 
 
+    <!-- ============================ -->
+    <!--    INSTALAR APLICACIÓN (PWA)   -->
+    <!-- ============================ -->
+    <section id="seccion-instalar" class="instalacion-app" style="display: none;">
+        <h2 class="titulo-seccion">Lleva la Librería Contigo</h2>
+        <p>
+            Instala nuestra aplicación en tu dispositivo para un acceso más rápido y una mejor experiencia.
+        </p>
+        <div class="contenedor-botones">
+            <button id="btn-instalar" class="boton-principal">Instalar Aplicación</button>
+        </div>
+        <small class="instrucciones-ios">En iPhone/iPad: pulsa el botón 'Compartir' de Safari y luego 'Añadir a pantalla de inicio'.</small>
+    </section>
+
+
 
     <!-- ============================ -->
     <!--        ZONA CONTACTO         -->
@@ -143,6 +160,53 @@ session_start();
 
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. REGISTRAR EL SERVICE WORKER (¡Esto faltaba!)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js') // Ruta relativa a index.php (ahora en la raíz)
+                .then(registration => {
+                    console.log('ServiceWorker registrado con éxito en index:', registration.scope);
+                })
+                .catch(err => {
+                    console.log('Fallo en el registro del ServiceWorker en index:', err);
+                });
+        }
+
+        // 2. Lógica para el botón de instalación
+        let deferredPrompt;
+        const seccionInstalar = document.getElementById('seccion-instalar');
+        const btnInstalar = document.getElementById('btn-instalar');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Previene que Chrome muestre el mini-infobar
+            e.preventDefault();
+            // Guarda el evento para poder lanzarlo más tarde
+            deferredPrompt = e;
+            // Muestra nuestra UI de instalación personalizada
+            seccionInstalar.style.display = 'block';
+        });
+
+        btnInstalar.addEventListener('click', async () => {
+            // Oculta nuestra UI, ya que el prompt se va a mostrar
+            seccionInstalar.style.display = 'none';
+            // Muestra el prompt de instalación
+            deferredPrompt.prompt();
+            // Espera a que el usuario responda
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`Respuesta del usuario al prompt de instalación: ${outcome}`);
+            // Ya no podemos usar el prompt, lo descartamos
+            deferredPrompt = null;
+        });
+
+        window.addEventListener('appinstalled', () => {
+            // Oculta la UI de instalación si la app ya se instaló
+            seccionInstalar.style.display = 'none';
+            deferredPrompt = null;
+            console.log('PWA instalada con éxito');
+        });
+    });
+</script>
 
 </div>
 </body>

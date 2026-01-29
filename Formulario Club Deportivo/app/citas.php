@@ -346,7 +346,7 @@ function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
     // Registrar el Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/js/sw.js')
+            navigator.serviceWorker.register('sw.js') // CORREGIDO: Ruta relativa, sin la barra inicial
                 .then(registration => {
                     console.log('ServiceWorker registrado con éxito:', registration.scope);
                 })
