@@ -1715,7 +1715,8 @@ footer {
     z-index: 1;
 }
 
-.contenedor-video video {
+.contenedor-video video,
+.contenedor-video iframe {
     /* Posicionamos el video para que llene el contenedor padre */
     position: absolute;
     top: 0;

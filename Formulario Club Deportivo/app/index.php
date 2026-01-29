@@ -35,11 +35,7 @@ session_start();
     <h2 class="titulo-seccion">Conoce nuestra Librería</h2>
     <section>
     <div class="contenedor-video">
-        <video controls width="100%" poster="uploads/img/fondo_video.jpg">
-            <!-- Reemplaza 'video.mp4' con el nombre real de tu archivo -->
-            <source src="uploads/video/Libreria__Creando_comunidad.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-        </video>
+        <iframe src="https://www.youtube.com/embed/tMTz4zamdYE" title="Video Librería" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </section>
 
