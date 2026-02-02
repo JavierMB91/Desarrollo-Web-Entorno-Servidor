@@ -410,7 +410,8 @@ header {
 
     /* Menú activo */
     .menu.active {
-        max-height: calc(100vh - 150px);
+        /* Usamos max-height para que la transición de apertura funcione */
+        max-height: calc(100vh - 150px); 
         width: calc(100% - 20px); /* deja espacio total */
         margin-top: -38px;
         margin-left: 10px;        /* lateral izquierdo */
@@ -418,6 +419,7 @@ header {
         opacity: 1;
         visibility: visible;
         border-radius: 10px;
+        overflow: visible; /* Permite que el dropdown de usuario se muestre */
     }
 
     .menu li {

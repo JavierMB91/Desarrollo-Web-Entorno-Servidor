@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <div class="titulo-con-logo">
             <!-- Título en el header, igual que en el resto de secciones -->
-            <h1 class="titulo-club">Mi Perfil</h1>
+            <h1 class="titulo-principal">Mi Perfil</h1>
         </div>
         <!-- Navegación dentro del header -->
         <?php include 'nav.php'; ?>
