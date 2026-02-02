@@ -12,5 +12,5 @@
 <link rel="shortcut icon" href="favicon/favicon.ico">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#121212">
-<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/estilos.css?v=<?php echo filemtime('css/estilos.css'); ?>">
 <title><?php echo isset($tituloPagina) ? $tituloPagina : 'Librería'; ?></title>
