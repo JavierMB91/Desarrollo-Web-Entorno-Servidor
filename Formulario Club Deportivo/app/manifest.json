@@ -1,6 +1,6 @@
 {
-  "name": "Librería - Gestión de Socios y Actividades",
   "short_name": "Librería",
+  "name": "Librería - Gestión de Socios y Actividades",
   "description": "Aplicación de gestión para socios, actividades y noticias de la Librería.",
   "start_url": "./index.php",
   "display": "standalone",
