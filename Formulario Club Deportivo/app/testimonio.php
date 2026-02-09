@@ -101,9 +101,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div id="footer"></div>
 
-<script src="js/funcionesTestimonio.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/transiciones.js"></script>
+<script src="js/funcionesTestimonio.js?v=<?= filemtime('js/funcionesTestimonio.js') ?>"></script>
+<script src="js/footer.js?v=<?= filemtime('js/footer.js') ?>"></script>
+<script src="js/transiciones.js?v=<?= filemtime('js/transiciones.js') ?>"></script>
 
 </div>
 </body>

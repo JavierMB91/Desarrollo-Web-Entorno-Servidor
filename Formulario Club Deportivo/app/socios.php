@@ -105,7 +105,7 @@ $stmt->execute(['q' => "%$busqueda%"]);
         </main>
 
         <div id="footer"></div>
-        <script src="js/footer.js"></script>
+        <script src="js/footer.js?v=<?= filemtime('js/footer.js') ?>"></script>
         <script>
             // Registrar el Service Worker
             if ('serviceWorker' in navigator) {

@@ -86,8 +86,8 @@ $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </main>
 
 <div id="footer"></div>
-<script src="js/footer.js"></script>
-<script src="js/transiciones.js"></script>
+<script src="js/footer.js?v=<?= filemtime('js/footer.js') ?>"></script>
+<script src="js/transiciones.js?v=<?= filemtime('js/transiciones.js') ?>"></script>
 
 </div>
 </body>

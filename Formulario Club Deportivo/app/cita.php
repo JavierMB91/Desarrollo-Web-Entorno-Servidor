@@ -130,8 +130,8 @@ function h($s) {
     <div id="footer"></div>
   </div>
 
-  <script src="js/funcionesCita.js"></script>
-  <script src="js/footer.js"></script>
-  <script src="js/transiciones.js"></script>
+  <script src="js/funcionesCita.js?v=<?= filemtime('js/funcionesCita.js') ?>"></script>
+  <script src="js/footer.js?v=<?= filemtime('js/footer.js') ?>"></script>
+  <script src="js/transiciones.js?v=<?= filemtime('js/transiciones.js') ?>"></script>
 </body>
 </html>
