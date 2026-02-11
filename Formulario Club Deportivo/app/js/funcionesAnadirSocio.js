@@ -18,7 +18,7 @@ formularioNuevoSocio.addEventListener('submit', (e) => {
 
     // Expresiones regulares
     const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
-    const telefonoEspaña = /^\d{9}$/;
+    const telefonoEspana = /^\d{9}$/;
     const soloLetrasNumerosGuiones = /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9_]+$/;
 
     // =========================
@@ -38,13 +38,13 @@ formularioNuevoSocio.addEventListener('submit', (e) => {
     }
 
     // Validación teléfono
-    if (!telefonoEspaña.test(telefono)) {
+    if (!telefonoEspana.test(telefono)) {
         mostrarError('telefono', 'Teléfono no válido (9 dígitos)');
         hayError = true;
     }
 
     if (password.length < 8 || password.length > 20 || !soloLetrasNumerosGuiones.test(password)) {
-        document.getElementById('passwordError').innerText = "Contraseña no válida";
+        document.getElementById('passwordError').innerText = "Clave no válida";
         hayError = true;
     }
 
@@ -105,7 +105,7 @@ function comprobarImagen(imagen) {
         errores.push("La imagen debe ser un JPEG válido");
     }
 
-    // Tamaño máximo 5MB
+    // Tamano máximo 5MB
     if (archivo.size > 5 * 1024 * 1024) {
         errores.push("La imagen es demasiado grande (máx 5MB)");
     }

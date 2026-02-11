@@ -373,7 +373,7 @@ header {
     }
 }
 
-/* TABLETS Y DISPOSITIVOS PEQUEÑOS (hasta 768px) */
+/* TABLETS Y DISPOSITIVOS PEQUENOS (hasta 768px) */
 @media (max-width: 768px) {
     .navegador {
         display: flex;
@@ -1186,7 +1186,7 @@ button[type="submit"]:hover,
 
 /*
  * Solución para cuando solo hay un resultado de búsqueda en la lista de servicios.
- * Esto centra la tarjeta y le da un tamaño adecuado en lugar de ocupar solo el 25%.
+ * Esto centra la tarjeta y le da un tamano adecuado en lugar de ocupar solo el 25%.
 */
 .servicios-lista .servicio-card:only-child {
     flex-grow: 0;

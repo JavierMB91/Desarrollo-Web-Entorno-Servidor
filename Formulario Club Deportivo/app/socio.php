@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Hashear contraseña
+    // Hashear clave
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $rol = 'socio';
@@ -129,8 +129,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="bloque-form">
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" placeholder="Contraseña">
+        <label for="password">Clave</label>
+        <input type="password" name="password" id="password" placeholder="Clave">
         <span id="passwordError" class="error"></span>
     </div>
 

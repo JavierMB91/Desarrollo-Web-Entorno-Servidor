@@ -18,7 +18,7 @@ formularioSocio.addEventListener('submit', (e) => {
     const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
     const sinCaracteresEspeciales = /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s]+$/;
     const soloLetrasNumerosGuiones = /^[A-Za-z0-9_]+$/;
-    const telefonoEspaña = /^\d{9}$/;
+    const telefonoEspana = /^\d{9}$/;
 
     // Validaciones
     if (nombre.length < 4 || nombre.length > 50 || !soloLetras.test(nombre)) {
@@ -32,11 +32,11 @@ formularioSocio.addEventListener('submit', (e) => {
     }
 
     if (password.length < 8 || password.length > 20 || !soloLetrasNumerosGuiones.test(password)) {
-        document.getElementById('passwordError').innerText = "Contraseña no válida";
+        document.getElementById('passwordError').innerText = "Clave no válida";
         hayErrores = true;
     }
 
-    if (!telefonoEspaña.test(telefono)) {
+    if (!telefonoEspana.test(telefono)) {
         document.getElementById('telefonoError').innerText = "Teléfono no válido";
         hayErrores = true;
     }

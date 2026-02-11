@@ -14,7 +14,7 @@ $anio = isset($_GET['anio']) ? intval($_GET['anio']) : intval(date('Y'));
 $diaSeleccionado = isset($_GET['dia']) ? intval($_GET['dia']) : null;
 $busqueda = isset($_GET['q']) ? trim($_GET['q']) : '';
 
-// Normalizar mes/año
+// Normalizar mes/anio
 while ($mes < 1)  { $mes += 12; $anio -= 1; }
 while ($mes > 12) { $mes -= 12; $anio += 1; }
 

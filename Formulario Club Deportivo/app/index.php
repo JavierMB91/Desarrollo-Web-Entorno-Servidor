@@ -128,7 +128,7 @@ session_start();
         <div class="contenedor-botones">
             <button id="btn-instalar" class="boton-principal">Instalar Aplicación</button>
         </div>
-        <small class="instrucciones-ios">En iPhone/iPad: pulsa el botón 'Compartir' de Safari y luego 'Añadir a pantalla de inicio'.</small>
+        <small class="instrucciones-ios">En iPhone/iPad: pulsa el botón 'Compartir' de Safari y luego 'Agregar a pantalla de inicio'.</small>
     </section>
 
 

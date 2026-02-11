@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $edad = ($edad === '') ? null : $edad;
 
     // ==========================
-    // Hashear contraseña
+    // Hashear clave
     // ==========================
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -136,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <div class="bloque-form">
-    <label for="password">Contraseña</label>
-    <input id="password" type="password" name="password" placeholder="Contraseña">
+    <label for="password">Clave</label>
+    <input id="password" type="password" name="password" placeholder="Clave">
     <span id="passwordError" class="error"></span>
 </div>
 
@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </div>
 
-<script src="js/funcionesAñadirSocio.js"></script>
+<script src="js/funcionesAnadirSocio.js"></script>
 <script src="js/footer.js"></script>
 <script src="js/transiciones.js"></script>
 

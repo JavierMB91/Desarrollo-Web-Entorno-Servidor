@@ -3,7 +3,7 @@ const formularioSocio = document.querySelector("form");
 // Expresiones regulares
 const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,50}$/;
 const soloEdad = /^[0-9]{1,3}$/;
-const soloTelefono = /^[0-9]{9}$/; // teléfono español
+const soloTelefono = /^[0-9]{9}$/; // teléfono espanol
 const soloJPG = /\.(jpg|jpeg)$/i;
 
 formularioSocio.addEventListener("submit", (e) => {
@@ -61,7 +61,7 @@ formularioSocio.addEventListener("submit", (e) => {
             hayError = true;
         }
 
-        // Validar tamaño máximo (5 MB)
+        // Validar tamano máximo (5 MB)
         if (archivo.size > 5 * 1024 * 1024) {
             document.getElementById("fotoError").innerText =
                 "La imagen es demasiado grande (máx. 5MB).";

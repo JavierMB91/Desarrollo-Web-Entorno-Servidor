@@ -54,7 +54,7 @@ formularioServicio.addEventListener('submit', (e) => {
     }
 
     // =============================
-    // VALIDAR HORA FORMATO ESPAÑA
+    // VALIDAR HORA FORMATO ESPANA
     // =============================
     if (!formatoHora.test(hora)) {
         document.getElementById('horaError').innerText = "Hora inválida (ej: 09:30, 18:45).";

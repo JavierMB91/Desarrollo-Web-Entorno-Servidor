@@ -64,21 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // CAMBIO DE CONTRASEÑA
-    $passwordHash = $usuario['password']; // por defecto la contraseña actual
+    // CAMBIO DE CLAVE
+    $passwordHash = $usuario['password']; // por defecto la clave actual
     if (!empty($password_actual) || !empty($password_nuevo)) {
         if (!$password_actual || !$password_nuevo) {
-            $_SESSION['mensaje_error'] = "Para cambiar la contraseña debes completar ambos campos.";
+            $_SESSION['mensaje_error'] = "Para cambiar la clave debes completar ambos campos.";
             header("Location: perfil.php");
             exit;
         }
-        // Verificar contraseña actual
+        // Verificar clave actual
         if (!password_verify($password_actual, $usuario['password'])) {
-            $_SESSION['mensaje_error'] = "La contraseña actual es incorrecta.";
+            $_SESSION['mensaje_error'] = "La clave actual es incorrecta.";
             header("Location: perfil.php");
             exit;
         }
-        // Hashear nueva contraseña
+        // Hashear nueva clave
         $passwordHash = password_hash($password_nuevo, PASSWORD_DEFAULT);
     }
 
@@ -179,12 +179,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="divider"></div>
 
             <div class="bloque-form">
-                <label for="password_actual">Contraseña actual</label>
+                <label for="password_actual">Clave actual</label>
                 <input type="password" id="password_actual" name="password_actual" placeholder="Dejar vacío si no deseas cambiarla">
             </div>
 
             <div class="bloque-form">
-                <label for="password_nuevo">Nueva contraseña</label>
+                <label for="password_nuevo">Nueva clave</label>
                 <input type="password" id="password_nuevo" name="password_nuevo" placeholder="Dejar vacío si no deseas cambiarla">
             </div>
 

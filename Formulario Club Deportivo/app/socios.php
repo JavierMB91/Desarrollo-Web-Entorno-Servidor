@@ -88,7 +88,7 @@ $stmt->execute(['q' => "%$busqueda%"]);
                             <!-- DATOS -->
                             <h3><?= htmlspecialchars($socio['nombre']) ?></h3>
                             <p><strong>Rol:</strong> <?= ucfirst(htmlspecialchars($socio['rol'])) ?></p>
-                            <p><strong>Edad:</strong> <?= htmlspecialchars($socio['edad']) ?> años</p>
+                            <p><strong>Edad:</strong> <?= htmlspecialchars($socio['edad']) ?> anos</p>
                             <p><strong>Tel:</strong> <?= htmlspecialchars($socio['telefono']) ?></p>
 
                             <!-- BOTONES DE ACCIÓN -->

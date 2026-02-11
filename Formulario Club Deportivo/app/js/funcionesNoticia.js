@@ -42,10 +42,10 @@ formulariocontenido.addEventListener('submit', (e) => {
     fechaError.innerText = "Selecciona una fecha";
     hayError = true;
 } else {
-    const [año, mes, dia] = fecha.split('-').map(Number);
+    const [anio, mes, dia] = fecha.split('-').map(Number);
 
     // Crear fecha local sin desfase
-    const fechaIngresada = new Date(año, mes - 1, dia, 0, 0, 0);
+    const fechaIngresada = new Date(anio, mes - 1, dia, 0, 0, 0);
 
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);

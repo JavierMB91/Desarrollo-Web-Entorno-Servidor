@@ -11,7 +11,7 @@ if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.
     $host = "sqlXXX.infinityfree.com";
     $db   = "if0_XXXXXX_mi_aplicacion";
     $user = "if0_XXXXXX";
-    $pass = "TU_CONTRASEÑA_AQUI";
+    $pass = "TU_CLAVE_AQUI";
 }
 
 try {

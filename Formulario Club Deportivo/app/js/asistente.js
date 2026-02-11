@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
             response = "Puedes contactarnos en el formulario de la web o llamando al 600 123 456.";
         }
 
-        // Simular pequeño retraso de pensamiento
+        // Simular pequeno retraso de pensamiento
         setTimeout(() => {
             messageElement.textContent = response;
             chatbox.scrollTo(0, chatbox.scrollHeight);
@@ -139,11 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
         chatInput.value = "";
         chatInput.style.height = `${inputInitHeight}px`;
 
-        // Añadir mensaje del usuario
+        // Agregar mensaje del usuario
         chatbox.appendChild(createChatLi(userMessage, "outgoing"));
         chatbox.scrollTo(0, chatbox.scrollHeight);
 
-        // Añadir mensaje de "Escribiendo..."
+        // Agregar mensaje de "Escribiendo..."
         setTimeout(() => {
             const incomingChatLi = createChatLi("Escribiendo...", "incoming");
             chatbox.appendChild(incomingChatLi);

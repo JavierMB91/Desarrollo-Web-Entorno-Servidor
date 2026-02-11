@@ -15,7 +15,7 @@ if (!empty($telefono) && !empty($password)) {
     $usuarioDB = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$usuarioDB || !password_verify($password, $usuarioDB['password'])) {
-        // Teléfono o contraseña incorrecta
+        // Teléfono o clave incorrecta
         $login_incorrecto = true;
     }
 } else {

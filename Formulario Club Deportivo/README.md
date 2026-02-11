@@ -6,8 +6,8 @@ Bienvenido al repositorio del proyecto **Librería**. Esta es una aplicación we
 
 ### 1. Gestión de Usuarios (Socios/Lectores)
 - **CRUD Completo:** Registro, listado, edición y eliminación de socios.
-- **Perfiles:** Subida y actualización de fotos de perfil (validación de formato JPG/JPEG y tamaño).
-- **Seguridad:** Control de acceso basado en roles (Administrador vs. Usuario) y contraseñas hasheadas.
+- **Perfiles:** Subida y actualización de fotos de perfil (validación de formato JPG/JPEG y tamano).
+- **Seguridad:** Control de acceso basado en roles (Administrador vs. Usuario) y claves hasheadas.
 - **Validación:** Comprobaciones robustas tanto en cliente (JavaScript) como en servidor (PHP) para campos como DNI, teléfono y edad.
 
 ### 2. Gestión de Servicios
@@ -20,8 +20,8 @@ Bienvenido al repositorio del proyecto **Librería**. Esta es una aplicación we
 - Validación de fechas (no permitir fechas pasadas) y horarios.
 - Visualización de disponibilidad.
 
-### 4. Interfaz y Diseño (UI/UX)
-- **Diseño Responsivo:** Adaptado a móviles, tablets y escritorio mediante Media Queries.
+### 4. Interfaz y Diseno (UI/UX)
+- **Diseno Responsivo:** Adaptado a móviles, tablets y escritorio mediante Media Queries.
 - **Estética Personalizada:** Tema visual "Dark Academia" / Elegante utilizando variables CSS (`--ebano-oscuro`, `--dorado-viejo`, `--papel-antiguo`).
 - **Componentes Interactivos:** Menú hamburguesa, desplegables de usuario, modales y un asistente virtual (chatbot UI) para resolver dudas sobre la librería.
 
@@ -39,9 +39,9 @@ La estructura principal dentro de la carpeta `app/` es la siguiente:
 ```text
 app/
 ├── css/
-│   └── estilos.css          # Hoja de estilos principal con diseño responsivo
+│   └── estilos.css          # Hoja de estilos principal con diseno responsivo
 ├── js/
-│   ├── funcionesAñadirSocio.js  # Validaciones para nuevos socios
+│   ├── funcionesAnadirSocio.js  # Validaciones para nuevos socios
 │   ├── funcionesEditarSocio.js  # Validaciones para edición y fotos
 │   ├── funcionesServicio.js     # Lógica para gestión de servicios
 │   ├── funcionesCita.js         # Lógica para el sistema de reservas
@@ -70,7 +70,7 @@ app/
 
 ## 🔍 Detalles de Implementación
 
-- **Validación de Formularios:** Se utilizan Expresiones Regulares (Regex) en JavaScript para validar nombres, teléfonos españoles (9 dígitos), precios y formatos de archivo antes de enviar al servidor.
+- **Validación de Formularios:** Se utilizan Expresiones Regulares (Regex) en JavaScript para validar nombres, teléfonos espanoles (9 dígitos), precios y formatos de archivo antes de enviar al servidor.
 - **Manejo de Errores:** Sistema de feedback visual mediante clases CSS (`.error`, `.mensaje-exito`) y manejo de excepciones `PDOException` en la base de datos.
 - **Estilos:** Uso extensivo de variables CSS (`:root`) para mantener la consistencia en la paleta de colores y transiciones suaves.
 

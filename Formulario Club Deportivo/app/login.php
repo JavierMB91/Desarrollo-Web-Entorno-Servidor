@@ -30,14 +30,14 @@ if (is_loged_in()) {
             </div>
 
             <div class="bloque-form">
-                <label for="password">Contraseña</label>
-                <input id="password" type="password" name="password" placeholder="Contraseña">
+                <label for="password">Clave</label>
+                <input id="password" type="password" name="password" placeholder="Clave">
             </div>
 
             <?php
             // Mostrar mensaje general de error
             if (isset($_GET['error'])) {
-                echo '<p class="error" style="text-align:center; margin-top:10px;">❌ Teléfono o contraseña incorrecta</p>';
+                echo '<p class="error" style="text-align:center; margin-top:10px;">❌ Teléfono o clave incorrecta</p>';
             }
             ?>
 

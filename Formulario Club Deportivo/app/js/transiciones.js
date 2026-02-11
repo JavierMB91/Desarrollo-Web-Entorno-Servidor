@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===== SECCIONES / CAMBIO DE PAGINA =====
-    const secciones = document.querySelectorAll('.seccion'); // clase común para cada "página" o pestaña
+    const secciones = document.querySelectorAll('.seccion'); // clase común para cada "página" o pestana
     secciones.forEach(sec => {
         sec.style.opacity = 0;
         sec.style.transition = 'opacity 0.5s ease';
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicialmente mostrar la primera sección
     mostrarSeccion(0);
 
-    // Ejemplo de cambio de pestaña con botones
+    // Ejemplo de cambio de pestana con botones
     const botonesPestana = document.querySelectorAll('.btn-pestana');
     botonesPestana.forEach((btn, i) => {
         btn.addEventListener('click', () => {

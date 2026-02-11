@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // ==========================
-    // Manejo de contraseña
+    // Manejo de clave
     // ==========================
     $password = $_POST['password'] ?? '';
     $params = [
@@ -193,8 +193,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="bloque-form">
-        <label>Contraseña (dejar vacío para no cambiar):</label>
-        <input id="password" type="password" name="password" placeholder="Nueva contraseña">
+        <label>Clave (dejar vacío para no cambiar):</label>
+        <input id="password" type="password" name="password" placeholder="Nueva clave">
         <span class="error" id="passwordError"></span>
     </div>
 
