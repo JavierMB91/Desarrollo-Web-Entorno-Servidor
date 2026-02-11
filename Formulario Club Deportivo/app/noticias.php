@@ -40,7 +40,7 @@ $noticias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Noticias"; ?>
     <?php include 'head.php'; ?>

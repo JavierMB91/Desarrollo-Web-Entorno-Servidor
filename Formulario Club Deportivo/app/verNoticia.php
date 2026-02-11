@@ -17,7 +17,7 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Detalle de Noticia"; ?>
     <?php include 'head.php'; ?>

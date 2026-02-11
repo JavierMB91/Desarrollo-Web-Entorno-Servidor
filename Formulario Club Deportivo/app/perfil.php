@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Mi Perfil"; ?>
     <?php include 'head.php'; ?>

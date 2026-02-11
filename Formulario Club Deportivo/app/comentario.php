@@ -18,7 +18,7 @@ $stmt = $pdo->query($sql);
 $testimonios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Lista Comentarios"; ?>
     <?php include 'head.php'; ?>

@@ -4,7 +4,7 @@ require_once 'conexion.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Lista Servicios"; ?>
     <?php include 'head.php'; ?>

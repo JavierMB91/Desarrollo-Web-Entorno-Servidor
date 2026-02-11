@@ -75,9 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
 
+<!DOCTYPE html>
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Agregar Nuevo Socio"; ?>
     <?php include 'head.php'; ?>

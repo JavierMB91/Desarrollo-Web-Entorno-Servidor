@@ -63,7 +63,7 @@ function h($s) {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Agendar Lectura"; ?>
     <?php include 'head.php'; ?>

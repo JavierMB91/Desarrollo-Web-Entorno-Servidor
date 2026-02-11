@@ -3,8 +3,7 @@ require_once 'conexion.php';
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Inicio"; ?>
     <?php include 'head.php'; ?>

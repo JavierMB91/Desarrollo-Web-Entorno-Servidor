@@ -38,7 +38,7 @@ $stmt->execute(['q' => "%$busqueda%"]);
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Gestión de Socios"; ?>
     <?php include 'head.php'; ?>

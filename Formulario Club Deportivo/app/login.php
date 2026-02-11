@@ -8,7 +8,7 @@ if (is_loged_in()) {
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Iniciar Sesión"; ?>
     <?php include 'head.php'; ?>

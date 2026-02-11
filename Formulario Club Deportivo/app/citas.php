@@ -117,9 +117,9 @@ if ($busqueda !== '') {
 // Helper seguro para salida
 function h($s) { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); }
 ?>
-<!DOCTYPE html>
-<html lang="es">
 
+<!DOCTYPE html>
+<html lang="es-ES">
 <head>
     <?php $tituloPagina = "Sección de Reservas"; ?>
     <?php include 'head.php'; ?>
