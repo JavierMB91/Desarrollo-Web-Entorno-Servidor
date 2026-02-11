@@ -1,0 +1,13 @@
+# Configuración de VS Code
+.vscode/
+
+# Logs de errores
+error_log
+
+# Archivos de configuración y claves
+app/conexion.php
+db_config.php
+
+# Carpetas de subidas (ignorar contenido, mantener carpeta)
+app/uploads/*
+!app/uploads/.gitkeep
