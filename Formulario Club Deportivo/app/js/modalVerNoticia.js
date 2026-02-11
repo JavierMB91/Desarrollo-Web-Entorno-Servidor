@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     img.onclick = function() {
         modal.style.display = "block";
         modalImg.src = this.src;
+        modalImg.alt = this.alt; // Copiamos también el texto alternativo
     }
 
     // Cuando el usuario hace clic en <span> (x) o en el fondo, cerrar el modal

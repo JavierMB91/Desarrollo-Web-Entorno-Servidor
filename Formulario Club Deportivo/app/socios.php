@@ -77,10 +77,11 @@ $stmt->execute(['q' => "%$busqueda%"]);
                             <!-- FOTO -->
                             <?php 
                                 $fotoPath = !empty($socio['foto']) ? 'uploads/usuarios/' . $socio['foto'] : null;
+                                $nombreSocio = htmlspecialchars($socio['nombre']);
                                 if ($fotoPath && file_exists(__DIR__ . '/' . $fotoPath)) {
-                                    echo '<img src="' . htmlspecialchars($fotoPath) . '" alt="Foto socio" loading="lazy" decoding="async" width="150" height="150">';
+                                    echo '<img src="' . htmlspecialchars($fotoPath) . '" alt="Foto de perfil de ' . $nombreSocio . '" loading="lazy" decoding="async" width="150" height="150">';
                                 } else {
-                                    echo '<img src="https://ui-avatars.com/api/?name=' . urlencode($socio['nombre']) . '&background=random" alt="Avatar" loading="lazy" decoding="async" width="150" height="150">';
+                                    echo '<img src="https://ui-avatars.com/api/?name=' . urlencode($socio['nombre']) . '&background=random" alt="Avatar de ' . $nombreSocio . '" loading="lazy" decoding="async" width="150" height="150">';
                                 }
                             ?>
 

@@ -36,7 +36,7 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
     <h2 class="titulo-noticia"><?= htmlspecialchars($noticia["titulo"]) ?></h2>
     <article class="noticia-detalle">
         <!-- La imagen ahora es clicable -->
-        <img id="imagenNoticia" src="uploads/noticias/<?= htmlspecialchars($noticia['imagen']) ?>" alt="<?= htmlspecialchars($noticia['titulo']) ?>" class="imagen-noticia clickable">
+        <img id="imagenNoticia" src="uploads/noticias/<?= htmlspecialchars($noticia['imagen']) ?>" alt="Imagen para la noticia: <?= htmlspecialchars($noticia['titulo']) ?>" class="imagen-noticia clickable">
 
         <div class="contenido-noticia">
             <!-- Convertimos saltos de línea en <br> pero el contenedor aplica formato legible -->

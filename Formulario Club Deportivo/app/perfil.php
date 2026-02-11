@@ -148,10 +148,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <!-- Foto de Perfil -->
             <div class="foto-perfil">
                 <?php if (!empty($usuario['foto']) && file_exists(__DIR__ . '/uploads/usuarios/' . $usuario['foto'])): ?>
-                    <img src="uploads/usuarios/<?= htmlspecialchars($usuario['foto']); ?>" alt="Foto de <?= htmlspecialchars($usuario['nombre']); ?>">
+                    <img src="uploads/usuarios/<?= htmlspecialchars($usuario['foto']); ?>" alt="Foto de perfil de <?= htmlspecialchars($usuario['nombre']); ?>">
                 <?php else: ?>
                     <!-- Imagen por defecto si no tiene -->
-                    <img src="https://picsum.photos/seed/<?= $usuario['id']; ?>/150/150" alt="Avatar por defecto">
+                    <img src="https://picsum.photos/seed/<?= $usuario['id']; ?>/150/150" alt="Avatar por defecto de <?= htmlspecialchars($usuario['nombre']); ?>">
                 <?php endif; ?>
             </div>
 

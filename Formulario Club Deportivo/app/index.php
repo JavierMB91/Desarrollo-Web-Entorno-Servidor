@@ -27,7 +27,7 @@ session_start();
     <!--        BIENVENIDA            -->
     <!-- ============================ -->
     <section class="bienvenida">
-        <img src="uploads/img/fondo_principal.jpg" alt="Fondo principal" class="imagen-bienvenida">
+        <img src="uploads/img/fondo_principal.jpg" alt="Interior de una librería clásica con estanterías de madera llenas de libros." class="imagen-bienvenida">
         <h2 class="texto-bienvenida">Bienvenido a la Libreria</h2>
     </section>
 
@@ -63,7 +63,7 @@ session_start();
 
                 echo '<article class="noticia-card">';
                 
-                echo '<img src="uploads/noticias/' . htmlspecialchars($n["imagen"]) . '" class="imagen-noticia" alt="' . htmlspecialchars($n["titulo"]) . '" loading="lazy" decoding="async" width="400" height="200">';
+                echo '<img src="uploads/noticias/' . htmlspecialchars($n["imagen"]) . '" class="imagen-noticia" alt="Imagen para la noticia: ' . htmlspecialchars($n["titulo"]) . '" loading="lazy" decoding="async" width="400" height="200">';
 
                 
                 echo '<h3>' . htmlspecialchars($n["titulo"]) . '</h3>';

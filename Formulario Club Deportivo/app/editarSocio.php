@@ -204,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fotoPath = $socio['foto'] ? 'uploads/usuarios/' . $socio['foto'] : 'uploads/usuarios/default.jpg';
         ?>
         <img src="<?= htmlspecialchars($fotoPath) ?>?v=<?= file_exists($fotoPath) ? filemtime($fotoPath) : time() ?>"
-             width="80" alt="Foto socio">
+             width="80" alt="Foto actual de <?= htmlspecialchars($socio['nombre']) ?>">
     </div>
 
     <div class="bloque-form">
