@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 
-<h1 class="titulo-club">Editar socio</h1>
+<h1 class="titulo-principal">Editar socio</h1>
 <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 
 <main class="editar-formulario">

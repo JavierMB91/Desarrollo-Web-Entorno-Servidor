@@ -27,7 +27,7 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Noticias</h1>
+        <h1 class="titulo-principal">Noticias</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>

@@ -895,7 +895,7 @@ button[type="submit"]:hover,
     text-align: left;
     overflow: hidden;
     display: -webkit-box;
-    line-clamp: 3;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     flex-grow: 1;
 }
@@ -953,7 +953,6 @@ button[type="submit"]:hover,
     color: var(--ebano-oscuro);
     text-align: left;
     overflow-wrap: break-word;
-    word-break: break-word;
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -1097,7 +1096,7 @@ button[type="submit"]:hover,
     font-size: 1rem;
     color: var(--madera-ebano);
     margin: 0.2rem 0;
-    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .socio-card .contenedor-botones {
@@ -1179,7 +1178,7 @@ button[type="submit"]:hover,
     min-height: 30px; /* Ajusta esta altura según necesites */
     overflow: hidden;
     display: -webkit-box;
-    line-clamp: 4; /* Número de líneas a mostrar antes de truncar */
+    -webkit-line-clamp: 4; /* Número de líneas a mostrar antes de truncar */
     -webkit-box-orient: vertical;
     text-align: left;
     margin-bottom: 1rem;
@@ -1253,9 +1252,8 @@ button[type="submit"]:hover,
     min-height: 0;
     overflow: hidden;
     display: -webkit-box;
-    line-clamp: 4;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    word-break: break-word;
     overflow-wrap: break-word;
     position: relative;
     z-index: 1;
@@ -1514,11 +1512,10 @@ form[action="socios.php"] .contenedor-botones, form[action="servicios.php"] .con
     color: var(--madera-ebano);
     line-height: 1.5;
     margin-bottom: 0.5rem;
-    word-break: break-word;
     overflow-wrap: break-word;
     text-align: left;
     display: -webkit-box;
-    line-clamp: 3;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

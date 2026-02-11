@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <header>
     <div class="titulo-con-logo">
-        <h1 class="titulo-club">Nuevo Comentario</h1>
+        <h1 class="titulo-principal">Nuevo Comentario</h1>
     </div>
     <?php include 'nav.php'; ?> <!-- Antes era nav.html -->
 </header>
