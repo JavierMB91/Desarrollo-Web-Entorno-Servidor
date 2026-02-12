@@ -44,7 +44,7 @@ formularioNuevoSocio.addEventListener('submit', (e) => {
     }
 
     if (password.length < 8 || password.length > 20 || !soloLetrasNumerosGuiones.test(password)) {
-        document.getElementById('passwordError').innerText = "Clave no válida";
+        document.getElementById('passwordError').innerText = "Clave no válida (8-20 caracteres, solo letras, números y guion bajo)";
         hayError = true;
     }
 
@@ -94,15 +94,19 @@ function comprobarImagen(imagen) {
 
     const archivo = imagen.files[0];
 
-    // Validar extensión .jpg o .jpeg
+    // Validar extensión
     const nombreArchivo = archivo.name.toLowerCase();
-    if (!nombreArchivo.endsWith('.jpg') && !nombreArchivo.endsWith('.jpeg')) {
-        errores.push("La imagen debe ser un archivo JPG");
+    const extensionesPermitidas = ['.jpg', '.jpeg', '.png', '.webp'];
+    const tieneExtensionValida = extensionesPermitidas.some(ext => nombreArchivo.endsWith(ext));
+    
+    if (!tieneExtensionValida) {
+        errores.push("La imagen debe ser JPG, PNG o WEBP");
     }
 
     // Validar tipo MIME
-    if (archivo.type !== 'image/jpeg') {
-        errores.push("La imagen debe ser un JPEG válido");
+    const tiposPermitidos = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!tiposPermitidos.includes(archivo.type)) {
+        errores.push("Formato de imagen no válido");
     }
 
     // Tamano máximo 5MB

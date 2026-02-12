@@ -44,7 +44,11 @@ $noticia = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div class="contenedor-botones">
-            <a href="noticias.php" class="btn-atras"><span>Volver</span></a>
+            <?php 
+            $origen = isset($_GET['origen']) ? $_GET['origen'] : 'noticias';
+            $urlVolver = ($origen === 'index') ? 'index.php' : 'noticias.php';
+            ?>
+            <a href="<?= $urlVolver ?>" class="btn-atras"><span>Volver</span></a>
         </div>
     </article>
 </main>

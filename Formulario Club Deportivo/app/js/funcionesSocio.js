@@ -32,7 +32,7 @@ formularioSocio.addEventListener('submit', (e) => {
     }
 
     if (password.length < 8 || password.length > 20 || !soloLetrasNumerosGuiones.test(password)) {
-        document.getElementById('passwordError').innerText = "Clave no válida";
+        document.getElementById('passwordError').innerText = "Clave no válida (8-20 caracteres, solo letras, números y guion bajo)";
         hayErrores = true;
     }
 
@@ -67,8 +67,9 @@ function comprobarfoto(foto) {
         return fotoError;
     }
 
-    if (foto.files[0].type !== 'image/jpeg') {
-        fotoError.push("La foto debe ser un JPEG");
+    const tiposPermitidos = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!tiposPermitidos.includes(foto.files[0].type)) {
+        fotoError.push("La foto debe ser JPG, PNG o WEBP");
     }
 
     if (foto.files[0].size > 5 * 1024 * 1024) {

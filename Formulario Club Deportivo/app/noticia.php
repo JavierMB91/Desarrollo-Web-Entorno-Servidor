@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="bloque-form">
         <label for="imagen">Imagen asociada</label>
-        <input type="file" id="imagen" name="imagen">
+        <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png, image/webp">
         <span id="imagenError" class="error"></span>
     </div>
 

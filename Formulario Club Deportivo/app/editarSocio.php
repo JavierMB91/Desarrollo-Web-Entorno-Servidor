@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
 
-        if (!in_array($ext, ['jpg', 'jpeg'])) {
-            $_SESSION['mensaje_error'] = "❌ Formato de imagen no permitido.";
+        if (!in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
+            $_SESSION['mensaje_error'] = "❌ Formato de imagen no permitido (solo JPG, PNG, WEBP).";
             header("Location: editarSocio.php?id=$id");
             exit;
         }
@@ -208,8 +208,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="bloque-form">
-        <label>Nueva foto (JPG):</label>
-        <input id="foto" type="file" name="foto" accept=".jpg,.jpeg">
+        <label>Nueva foto (JPG, PNG, WEBP):</label>
+        <input id="foto" type="file" name="foto" accept="image/jpeg, image/png, image/webp">
         <span class="error" id="fotoError"></span>
     </div>
 

@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
 
         $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
-        $extPermitidas = ['jpg', 'jpeg', 'png'];
+        $extPermitidas = ['jpg', 'jpeg', 'png', 'webp'];
 
         if (!in_array($ext, $extPermitidas)) {
-            $_SESSION['mensaje_error'] = "Formato de imagen no permitido (solo JPG, JPEG, PNG).";
+            $_SESSION['mensaje_error'] = "Formato de imagen no permitido (solo JPG, PNG, WEBP).";
             header("Location: perfil.php");
             exit;
         }
@@ -172,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="bloque-form">
                 <label for="foto">Actualizar foto</label>
-                <input type="file" name="foto" id="foto">
+                <input type="file" name="foto" id="foto" accept="image/jpeg, image/png, image/webp">
             </div>
 
             <!-- Separador elegante -->

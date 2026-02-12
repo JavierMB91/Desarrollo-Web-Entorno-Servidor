@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
         $fotoTmp = $_FILES['foto']['tmp_name'];
 
-        if (!in_array($ext, ['jpg', 'jpeg', 'png'])) {
-            $_SESSION['mensaje_error'] = "❌ Formato de imagen no permitido";
+        if (!in_array($ext, ['jpg', 'jpeg', 'png', 'webp'])) {
+            $_SESSION['mensaje_error'] = "❌ Formato de imagen no permitido (solo JPG, PNG, WEBP)";
             header("Location: nuevoSocio.php");
             exit;
         }
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="bloque-form">
     <label for="foto">Foto</label>
-    <input id="foto" type="file" name="foto" accept="image/jpg, image/jpeg, image/png">
+    <input id="foto" type="file" name="foto" accept="image/jpeg, image/png, image/webp">
     <span id="errorFoto" class="error"></span>
 </div>
 

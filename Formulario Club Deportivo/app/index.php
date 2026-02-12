@@ -73,7 +73,7 @@ session_start();
 
             
                 
-                echo '<a class="btn" href="verNoticia.php?id=' . $n["id"] . '">Leer más</a>';
+                echo '<a class="btn" href="verNoticia.php?id=' . $n["id"] . '&origen=index">Leer más</a>';
                 echo '</article>';
             }
             echo '</div>';

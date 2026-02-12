@@ -89,8 +89,9 @@ function comprobarImagen(imagen) {
 
     const archivo = imagen.files[0];
 
-    if (archivo.type !== 'image/jpeg') {
-        errores.push("La imagen debe ser JPEG");
+    const tiposPermitidos = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!tiposPermitidos.includes(archivo.type)) {
+        errores.push("La imagen debe ser JPG, PNG o WEBP");
     }
 
     if (archivo.size > 5 * 1024 * 1024) {

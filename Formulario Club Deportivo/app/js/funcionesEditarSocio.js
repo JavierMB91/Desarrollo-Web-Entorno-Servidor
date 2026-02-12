@@ -4,7 +4,7 @@ const formularioSocio = document.querySelector("form");
 const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,50}$/;
 const soloEdad = /^[0-9]{1,3}$/;
 const soloTelefono = /^[0-9]{9}$/; // teléfono espanol
-const soloJPG = /\.(jpg|jpeg)$/i;
+const formatosImagen = /\.(jpg|jpeg|png|webp)$/i;
 
 formularioSocio.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -54,10 +54,10 @@ formularioSocio.addEventListener("submit", (e) => {
 
         const archivo = foto.files[0];
 
-        // Validar extensión JPG
-        if (!soloJPG.test(archivo.name)) {
+        // Validar extensión
+        if (!formatosImagen.test(archivo.name)) {
             document.getElementById("fotoError").innerText =
-                "La foto debe estar en formato JPG o JPEG.";
+                "La foto debe estar en formato JPG, PNG o WEBP.";
             hayError = true;
         }
 
