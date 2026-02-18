@@ -16,6 +16,7 @@
 
         <li><a href="socio.php">Hazte Socio</a></li>
         <li><a href="servicios.php">Actividades</a></li>
+        <li><a href="buscar_libros.php">Catálogo</a></li>
         <li><a href="comentario.php">Comentarios</a></li>
         <?php if (isset($_SESSION['id'])): ?>
             <li><a href="noticias.php">Noticias</a></li>

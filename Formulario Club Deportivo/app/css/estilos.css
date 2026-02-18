@@ -29,6 +29,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll; /* Fuerza la barra de scroll para evitar saltos de layout */
+}
+
 html, body {
     scroll-behavior: smooth;
     height: 100%;
@@ -2019,4 +2023,119 @@ body.show-asistente .asistente {
         height: 90%;
         padding: 25px 15px 100px;
     }
+}
+
+/* ===== ESTILOS PARA BUSCADOR DE LIBROS ===== */
+.libros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.libro-card {
+    background: var(--papel-claro);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--sombra-media);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: var(--transicion-suave);
+}
+
+.libro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px var(--sombra-ebano);
+}
+
+.libro-card img {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto 1rem;
+    box-shadow: 0 5px 15px var(--sombra-suave);
+}
+
+.libro-card h3 {
+    font-size: 1.1rem;
+    color: var(--ebano-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.libro-card p {
+    font-size: 0.9rem;
+    color: var(--madera-ebano);
+    flex-grow: 1;
+}
+
+/* ===== ESTILOS PARA BUSCADOR DE LIBROS (FORMULARIO) ===== */
+.form-buscador-libros {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, var(--papel-antiguo), var(--papel-claro));
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--sombra-media);
+    margin-bottom: 2rem;
+    max-width: none; /* Anulamos el max-width por defecto de los forms */
+}
+
+.form-buscador-libros > div {
+    flex-grow: 1;
+}
+
+.form-buscador-libros label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--madera-ebano);
+    font-weight: 700;
+    font-family: 'Roboto Slab', serif;
+}
+
+.form-buscador-libros select,
+.form-buscador-libros input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--madera-ebano);
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.form-buscador-libros .contenedor-botones {
+    margin: 0;
+    flex-grow: 0;
+}
+
+/* ===== ESTILOS PARA INFO EXTRA EN TARJETA DE LIBRO ===== */
+.libro-info-extra {
+    margin-top: auto; /* Empuja al final de la tarjeta */
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.libro-rating {
+    font-size: 1.2rem;
+}
+
+.libro-rating .star {
+    color: #ccc; /* Color de estrella vacía */
+}
+
+.libro-rating .star.filled {
+    color: var(--dorado-viejo); /* Color de estrella llena */
+}
+
+.libro-fecha {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--ebano-medio);
 }
