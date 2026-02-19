@@ -1,6 +1,11 @@
 # Configuración de VS Code
 .vscode/
 
+# Variables de entorno (secrets)
+.env
+.env.*
+!.env.example
+
 # Logs de errores
 error_log
 

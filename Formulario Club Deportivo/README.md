@@ -65,7 +65,12 @@ app/
    - **Localhost:** Utiliza variables de entorno (`DB_HOST`, `DB_USER`...) o configura tus credenciales locales en el archivo.
    - **Producción:** Configurado predeterminadamente para el entorno InfinityFree.
 
-3. **Permisos:**
+3. **Variables de Entorno (`.env`):**
+   - Crea tu `.env` a partir de `.env.example`.
+   - Define `GOOGLE_BOOKS_API_KEY` para que funcione el catálogo.
+   - No subas `.env` al repositorio (está ignorado por `.gitignore`).
+
+4. **Permisos:**
    Asegúrate de que la carpeta `app/uploads/usuarios` tenga permisos de escritura para permitir la subida de imágenes.
 
 ## 🔍 Detalles de Implementación

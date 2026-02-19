@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterType = document.getElementById('filter-type'); // <-- Nuevo: Obtenemos el selector
     const paginationControls = document.getElementById('pagination-controls');
     
-    const apiKey = 'AIzaSyCCv_eHGyQgjs_DjRostk8xhWHdnYMCu40';
     const resultsPerPage = 10;
     let allBooks = [];
     let currentPage = 1;
@@ -124,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchStatus.innerHTML = `<p>Buscando por ${nombreFiltro.toLowerCase()}: "${query}"...</p>`;
 
         // Pedimos los 40 resultados más relevantes (quitamos el orden por "newest")
-        const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(apiQuery)}&maxResults=40&key=${apiKey}`;
+        const apiUrl = `google_books_proxy.php?q=${encodeURIComponent(apiQuery)}&maxResults=40`;
 
         fetch(apiUrl)
             .then(response => {
